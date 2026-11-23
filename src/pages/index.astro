@@ -3,155 +3,177 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Дерево привычек — Трекер, дневник и виджет">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
   <main>
-    <!-- ═══ HERO ═══ -->
+    <!-- ═══════════════════════════════════════
+         HERO — мобильный: вертикаль, десктоп: split
+         ═══════════════════════════════════════ -->
     <section class="hero">
       <div class="hero-inner">
-        <span class="hero-eyebrow">Трекер привычек</span>
+        <!-- Левая колонка (текст) -->
+        <div class="hero-content">
+          <span class="hero-eyebrow">Трекер привычек</span>
 
-        <h1 class="hero-title">
-          Растите <span class="accent">дерево</span>,<br />
-          меняя жизнь
-        </h1>
+          <h1 class="hero-title">
+            Растите <span class="accent">дерево</span>,<br />
+            меняя жизнь
+          </h1>
 
-        <p class="hero-subtitle">
-          Дневник, стрики и виджет на рабочем столе. Визуальная мотивация,
-          которая работает лучше сухих графиков.
-        </p>
+          <p class="hero-subtitle">
+            Дневник, стрики и виджет на рабочем столе. Визуальная мотивация,
+            которая работает лучше сухих графиков.
+          </p>
 
-        <div class="hero-cta">
-          <a
-            href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener"
-          >
-            Скачать в RuStore
-          </a>
-          <a href="#features" class="btn btn-secondary">Возможности</a>
+          <div class="hero-cta">
+            <a
+              href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Скачать в RuStore
+            </a>
+            <a href="#features" class="btn btn-secondary">Возможности</a>
+          </div>
         </div>
 
-        <div class="tree-stage">
-          <div class="tree-glow" aria-hidden="true"></div>
+        <!-- Правая колонка (дерево) -->
+        <div class="hero-visual">
+          <div class="tree-stage">
+            <div class="tree-glow" aria-hidden="true"></div>
 
-          <svg
-            class="tree-svg"
-            viewBox="0 0 280 360"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Дерево привычек в стадии цветения"
-          >
-            <g id="static-parts">
-              <g id="island-shadow">
-                <ellipse cx="140" cy="346" rx="42" ry="4" fill="#2A1A10" opacity="0.4" />
-              </g>
-              <g id="island-roots">
-                <path d="M 122 310 Q 118 326 124 340" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M 140 312 Q 140 328 143 342" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M 158 308 Q 162 324 158 338" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M 112 306 Q 108 318 112 330" fill="none" stroke="#5A3E2A" stroke-width="2" stroke-linecap="round" />
-                <path d="M 172 304 Q 176 318 170 332" fill="none" stroke="#5A3E2A" stroke-width="2" stroke-linecap="round" />
-              </g>
-              <g id="island-fragments">
-                <ellipse cx="100" cy="348" rx="5" ry="3" fill="#4A3420" opacity="0.85" />
-                <ellipse cx="176" cy="344" rx="4" ry="2.5" fill="#4A3420" opacity="0.85" />
-                <circle cx="86" cy="340" r="2.5" fill="#4A3420" opacity="0.7" />
-                <circle cx="190" cy="336" r="2" fill="#4A3420" opacity="0.7" />
-              </g>
-              <g id="island-back">
-                <path d="M 76 264 C 76 254 106 248 140 248 C 174 248 204 254 204 264 L 204 282 C 200 290 186 296 172 295 L 172 302 C 178 308 176 314 170 316 L 170 320 C 172 324 168 328 160 328 C 154 332 146 330 140 330 C 134 330 126 332 120 328 C 112 328 108 324 110 320 L 110 316 C 104 314 102 308 108 302 L 108 295 C 94 296 80 290 76 282 Z" fill="#3A2A18" />
-              </g>
-              <g id="island-main">
-                <path d="M 100 300 C 100 294 118 290 140 290 C 162 290 180 294 180 300 L 180 310 C 174 314 162 316 152 315 C 146 317 144 316 140 316 C 136 316 134 317 128 315 C 118 316 106 314 100 310 Z" fill="#4A3420" />
-                <ellipse cx="140" cy="300" rx="38" ry="3" fill="#5A4538" />
-                <path d="M 88 282 C 88 276 112 272 140 272 C 168 272 192 276 192 282 L 192 294 C 186 299 174 302 162 301 C 152 304 146 303 140 303 C 134 303 128 304 118 301 C 106 302 94 299 88 294 Z" fill="#5A3E2A" />
-                <ellipse cx="140" cy="282" rx="50" ry="4" fill="#7AAE55" />
-                <path d="M 80 266 C 80 260 108 256 140 256 C 172 256 200 260 200 266 L 200 278 C 195 283 182 286 168 285 C 158 288 152 287 146 287 C 142 289 138 289 134 287 C 128 287 122 288 112 285 C 98 286 85 283 80 278 Z" fill="#6A4A32" />
-                <ellipse cx="140" cy="267" rx="52" ry="5" fill="#9EDB70" />
-              </g>
-              <g id="island-front">
-                <path d="M 100 284 Q 98 290 101 293 Q 103 289 102 284 Z" fill="#9EDB70" />
-                <path d="M 118 287 Q 117 293 119 296 Q 121 292 120 287 Z" fill="#9EDB70" />
-                <path d="M 160 287 Q 159 294 161 297 Q 163 292 162 287 Z" fill="#9EDB70" />
-                <path d="M 178 285 Q 177 291 179 294 Q 181 290 180 285 Z" fill="#9EDB70" />
-                <path d="M 108 297 Q 106 303 108 306 Q 110 302 110 297 Z" fill="#7AAE55" />
-                <path d="M 172 297 Q 170 303 172 306 Q 174 301 174 297 Z" fill="#7AAE55" />
-              </g>
-              <g id="island-details">
-                <ellipse cx="170" cy="268" rx="3" ry="1.5" fill="#3A2A1E" />
-                <circle cx="105" cy="269" r="1.5" fill="#3A2A1E" />
-                <circle cx="130" cy="271" r="1.2" fill="#3A2A1E" />
-                <circle cx="155" cy="270" r="1.3" fill="#3A2A1E" />
-                <circle cx="115" cy="288" r="1.5" fill="#3A2A1E" />
-                <circle cx="165" cy="290" r="1.3" fill="#3A2A1E" />
-                <path d="M 128 304 Q 132 308 130 312" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
-                <path d="M 152 303 Q 155 307 153 311" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
-                <ellipse cx="140" cy="271" rx="9" ry="1.5" fill="#4A3420" opacity="0.55" />
-              </g>
+            <div class="tree-frame">
+              <svg
+                class="tree-svg"
+                viewBox="0 0 280 360"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Дерево привычек в стадии цветения"
+              >
+                <!-- ═══ СТАТИЧНАЯ ЧАСТЬ ═══ -->
+                <g id="static-parts">
+                  <g id="island-shadow">
+                    <ellipse cx="140" cy="346" rx="42" ry="4" fill="#2A1A10" opacity="0.4" />
+                  </g>
+                  <g id="island-roots">
+                    <path d="M 122 310 Q 118 326 124 340" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 140 312 Q 140 328 143 342" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 158 308 Q 162 324 158 338" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 112 306 Q 108 318 112 330" fill="none" stroke="#5A3E2A" stroke-width="2" stroke-linecap="round" />
+                    <path d="M 172 304 Q 176 318 170 332" fill="none" stroke="#5A3E2A" stroke-width="2" stroke-linecap="round" />
+                  </g>
+                  <g id="island-fragments">
+                    <ellipse cx="100" cy="348" rx="5" ry="3" fill="#4A3420" opacity="0.85" />
+                    <ellipse cx="176" cy="344" rx="4" ry="2.5" fill="#4A3420" opacity="0.85" />
+                    <circle cx="86" cy="340" r="2.5" fill="#4A3420" opacity="0.7" />
+                    <circle cx="190" cy="336" r="2" fill="#4A3420" opacity="0.7" />
+                  </g>
+                  <g id="island-back">
+                    <path d="M 76 264 C 76 254 106 248 140 248 C 174 248 204 254 204 264 L 204 282 C 200 290 186 296 172 295 L 172 302 C 178 308 176 314 170 316 L 170 320 C 172 324 168 328 160 328 C 154 332 146 330 140 330 C 134 330 126 332 120 328 C 112 328 108 324 110 320 L 110 316 C 104 314 102 308 108 302 L 108 295 C 94 296 80 290 76 282 Z" fill="#3A2A18" />
+                  </g>
+                  <g id="island-main">
+                    <path d="M 100 300 C 100 294 118 290 140 290 C 162 290 180 294 180 300 L 180 310 C 174 314 162 316 152 315 C 146 317 144 316 140 316 C 136 316 134 317 128 315 C 118 316 106 314 100 310 Z" fill="#4A3420" />
+                    <ellipse cx="140" cy="300" rx="38" ry="3" fill="#5A4538" />
+                    <path d="M 88 282 C 88 276 112 272 140 272 C 168 272 192 276 192 282 L 192 294 C 186 299 174 302 162 301 C 152 304 146 303 140 303 C 134 303 128 304 118 301 C 106 302 94 299 88 294 Z" fill="#5A3E2A" />
+                    <ellipse cx="140" cy="282" rx="50" ry="4" fill="#7AAE55" />
+                    <path d="M 80 266 C 80 260 108 256 140 256 C 172 256 200 260 200 266 L 200 278 C 195 283 182 286 168 285 C 158 288 152 287 146 287 C 142 289 138 289 134 287 C 128 287 122 288 112 285 C 98 286 85 283 80 278 Z" fill="#6A4A32" />
+                    <ellipse cx="140" cy="267" rx="52" ry="5" fill="#9EDB70" />
+                  </g>
+                  <g id="island-front">
+                    <path d="M 100 284 Q 98 290 101 293 Q 103 289 102 284 Z" fill="#9EDB70" />
+                    <path d="M 118 287 Q 117 293 119 296 Q 121 292 120 287 Z" fill="#9EDB70" />
+                    <path d="M 160 287 Q 159 294 161 297 Q 163 292 162 287 Z" fill="#9EDB70" />
+                    <path d="M 178 285 Q 177 291 179 294 Q 181 290 180 285 Z" fill="#9EDB70" />
+                    <path d="M 108 297 Q 106 303 108 306 Q 110 302 110 297 Z" fill="#7AAE55" />
+                    <path d="M 172 297 Q 170 303 172 306 Q 174 301 174 297 Z" fill="#7AAE55" />
+                  </g>
+                  <g id="island-details">
+                    <ellipse cx="170" cy="268" rx="3" ry="1.5" fill="#3A2A1E" />
+                    <circle cx="105" cy="269" r="1.5" fill="#3A2A1E" />
+                    <circle cx="130" cy="271" r="1.2" fill="#3A2A1E" />
+                    <circle cx="155" cy="270" r="1.3" fill="#3A2A1E" />
+                    <circle cx="115" cy="288" r="1.5" fill="#3A2A1E" />
+                    <circle cx="165" cy="290" r="1.3" fill="#3A2A1E" />
+                    <path d="M 128 304 Q 132 308 130 312" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
+                    <path d="M 152 303 Q 155 307 153 311" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
+                    <ellipse cx="140" cy="271" rx="9" ry="1.5" fill="#4A3420" opacity="0.55" />
+                  </g>
 
-              <g id="trunk-shadow">
-                <path d="M134 270 C133 250 134 235 136 222 C136 220 137 218 139 217 C141 218 142 220 143 222 C145 235 146 250 145 270 Z" fill="#4A3420" />
-              </g>
-              <g id="trunk-main">
-                <path d="M136 270 C135 250 136 235 138 222 C138 220 139 218 140 217 C141 218 142 220 142 222 C144 235 145 250 144 270 Z" fill="#8A6538" />
-              </g>
-              <g id="trunk-light">
-                <path d="M143 270 C144 250 144 235 143 223 C142.5 221 142 219 141 218 C142 219 142.5 221 143 224 C144 238 144 255 143 270 Z" fill="#B88A58" />
-              </g>
-              <g id="trunk-lines">
-                <path d="M138 262 C137 248 138 232 139 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-                <path d="M141 266 C141 248 142 232 142 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-                <path d="M139 254 C138 244 139 232 140 224" fill="none" stroke="#3A2A1E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
-              </g>
-              <g id="branches">
-                <path d="M137 245 C134 241 132 236 130 230 L132 229 C134 235 136 239 139 243 Z" fill="#8A6538" />
-                <path d="M142 240 C146 236 148 232 150 226 L152 227 C150 232 147 236 144 240 Z" fill="#8A6538" />
-              </g>
-            </g>
+                  <g id="trunk-shadow">
+                    <path d="M134 270 C133 250 134 235 136 222 C136 220 137 218 139 217 C141 218 142 220 143 222 C145 235 146 250 145 270 Z" fill="#4A3420" />
+                  </g>
+                  <g id="trunk-main">
+                    <path d="M136 270 C135 250 136 235 138 222 C138 220 139 218 140 217 C141 218 142 220 142 222 C144 235 145 250 144 270 Z" fill="#8A6538" />
+                  </g>
+                  <g id="trunk-light">
+                    <path d="M143 270 C144 250 144 235 143 223 C142.5 221 142 219 141 218 C142 219 142.5 221 143 224 C144 238 144 255 143 270 Z" fill="#B88A58" />
+                  </g>
+                  <g id="trunk-lines">
+                    <path d="M138 262 C137 248 138 232 139 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+                    <path d="M141 266 C141 248 142 232 142 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+                    <path d="M139 254 C138 244 139 232 140 224" fill="none" stroke="#3A2A1E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+                  </g>
+                  <g id="branches">
+                    <path d="M137 245 C134 241 132 236 130 230 L132 229 C134 235 136 239 139 243 Z" fill="#8A6538" />
+                    <path d="M142 240 C146 236 148 232 150 226 L152 227 C150 232 147 236 144 240 Z" fill="#8A6538" />
+                  </g>
+                </g>
 
-            <g id="canopy">
-              <g id="canopy-back">
-                <ellipse cx="125" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                <ellipse cx="155" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                <ellipse cx="140" cy="185" rx="18" ry="16" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                <ellipse cx="118" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                <ellipse cx="162" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                <ellipse cx="140" cy="210" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-              </g>
-              <g id="canopy-main">
-                <ellipse cx="128" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="152" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="140" cy="186" rx="14" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="122" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="158" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="140" cy="195" rx="13" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="132" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="148" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="140" cy="218" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                <ellipse cx="140" cy="172" rx="10" ry="8" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-              </g>
-              <g id="canopy-light">
-                <ellipse cx="138" cy="173" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                <ellipse cx="152" cy="182" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                <ellipse cx="145" cy="188" rx="10" ry="8" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                <ellipse cx="135" cy="198" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                <ellipse cx="150" cy="205" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                <ellipse cx="140" cy="215" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-              </g>
-              <g id="canopy-highlights">
-                <circle cx="140" cy="168" r="2.5" fill="#C8FA9A" />
-                <circle cx="150" cy="176" r="2.5" fill="#C8FA9A" />
-                <circle cx="145" cy="184" r="2.5" fill="#C8FA9A" />
-                <circle cx="138" cy="193" r="2" fill="#C8FA9A" />
-                <circle cx="148" cy="202" r="2" fill="#C8FA9A" />
-              </g>
-            </g>
-          </svg>
+                <!-- ═══ КРОНА (анимируется) ═══ -->
+                <g id="canopy">
+                  <g id="canopy-back">
+                    <ellipse cx="125" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="155" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="140" cy="185" rx="18" ry="16" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="118" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="162" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="140" cy="210" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                  </g>
+                  <g id="canopy-main">
+                    <ellipse cx="128" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="152" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="140" cy="186" rx="14" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="122" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="158" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="140" cy="195" rx="13" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="132" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="148" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="140" cy="218" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="140" cy="172" rx="10" ry="8" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                  </g>
+                  <g id="canopy-light">
+                    <ellipse cx="138" cy="173" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="152" cy="182" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="145" cy="188" rx="10" ry="8" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="135" cy="198" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="150" cy="205" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="140" cy="215" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                  </g>
+                  <g id="canopy-highlights">
+                    <circle cx="140" cy="168" r="2.5" fill="#C8FA9A" />
+                    <circle cx="150" cy="176" r="2.5" fill="#C8FA9A" />
+                    <circle cx="145" cy="184" r="2.5" fill="#C8FA9A" />
+                    <circle cx="138" cy="193" r="2" fill="#C8FA9A" />
+                    <circle cx="148" cy="202" r="2" fill="#C8FA9A" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Плавающие частицы (премиум-эффект) -->
+            <span class="particle particle-1" aria-hidden="true"></span>
+            <span class="particle particle-2" aria-hidden="true"></span>
+            <span class="particle particle-3" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ FEATURES ═══ -->
+    <!-- ═══════════════════════════════════════
+         FEATURES — Bento Grid (десктоп) / Stack (мобайл)
+         ═══════════════════════════════════════ -->
     <section id="features" class="section reveal">
       <header class="section-header">
         <span class="eyebrow">Возможности</span>
@@ -164,9 +186,10 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </header>
 
-      <div class="features-grid">
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
+      <div class="bento-grid">
+        <!-- Карточка 1 — большая -->
+        <article class="bento-card bento-large reveal reveal-delay-1">
+          <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 28 V17" />
               <circle cx="16" cy="11" r="5" />
@@ -174,15 +197,18 @@ import Layout from '../layouts/Layout.astro';
               <circle cx="22" cy="14" r="3.5" />
             </svg>
           </div>
-          <h3 class="feature-title">Визуальная мотивация</h3>
-          <p class="feature-description">
+          <h3 class="bento-title">Визуальная мотивация</h3>
+          <p class="bento-text">
             Каждая выполненная привычка питает дерево. Смотрите, как оно растёт
-            из семечка до цветущего сада.
+            из семечка до цветущего сада. Это не просто галочки — это живой
+            организм, который реагирует на вашу дисциплину.
           </p>
+          <div class="bento-accent-line" aria-hidden="true"></div>
         </article>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
+        <!-- Карточка 2 -->
+        <article class="bento-card reveal reveal-delay-2">
+          <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <rect x="6" y="6" width="8" height="8" rx="2" />
               <rect x="18" y="6" width="8" height="8" rx="2" />
@@ -190,31 +216,34 @@ import Layout from '../layouts/Layout.astro';
               <path d="M18 22 h8 M18 26 h5" />
             </svg>
           </div>
-          <h3 class="feature-title">Виджет и стрики</h3>
-          <p class="feature-description">
+          <h3 class="bento-title">Виджет и стрики</h3>
+          <p class="bento-text">
             Держите прогресс на рабочем столе. Отслеживайте серии дней и не
-            теряйте мотивацию.
+            теряйте мотивацию, даже когда приложение закрыто.
           </p>
         </article>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
+        <!-- Карточка 3 -->
+        <article class="bento-card reveal reveal-delay-3">
+          <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M8 6 h14 a2 2 0 0 1 2 2 v18 h-14 a2 2 0 0 1 -2 -2 v-16 a2 2 0 0 1 2 -2 z" />
               <path d="M8 22 h16" />
               <path d="M12 11 h6 M12 15 h6" />
             </svg>
           </div>
-          <h3 class="feature-title">Дневник настроения</h3>
-          <p class="feature-description">
+          <h3 class="bento-title">Дневник настроения</h3>
+          <p class="bento-text">
             Записывайте мысли и эмоции. Понимайте, что влияет на вашу
-            продуктивность и состояние.
+            продуктивность и состояние. Приватно и локально.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- ═══ HOW IT WORKS ═══ -->
+    <!-- ═══════════════════════════════════════
+         HOW IT WORKS — Шаги
+         ═══════════════════════════════════════ -->
     <section class="section reveal">
       <header class="section-header">
         <span class="eyebrow">Как это работает</span>
@@ -225,17 +254,17 @@ import Layout from '../layouts/Layout.astro';
       </header>
 
       <ol class="steps-grid">
-        <li class="step-card">
+        <li class="step-card reveal reveal-delay-1">
           <span class="step-num" aria-hidden="true">01</span>
           <h3 class="step-title">Посадите семечко</h3>
           <p class="step-text">Создайте первую привычку: читать, пить воду или делать зарядку.</p>
         </li>
-        <li class="step-card">
+        <li class="step-card reveal reveal-delay-2">
           <span class="step-num" aria-hidden="true">02</span>
           <h3 class="step-title">Питайте дерево</h3>
           <p class="step-text">Отмечайте выполнение каждый день. Смотрите, как растёт ваш сад.</p>
         </li>
-        <li class="step-card">
+        <li class="step-card reveal reveal-delay-3">
           <span class="step-num" aria-hidden="true">03</span>
           <h3 class="step-title">Собирайте плоды</h3>
           <p class="step-text">Достигайте целей и наблюдайте, как меняется ваша жизнь.</p>
@@ -243,7 +272,9 @@ import Layout from '../layouts/Layout.astro';
       </ol>
     </section>
 
-    <!-- ═══ FINAL CTA ═══ -->
+    <!-- ═══════════════════════════════════════
+         FINAL CTA
+         ═══════════════════════════════════════ -->
     <section class="final-cta reveal">
       <div class="final-inner">
         <h2 class="section-title">
@@ -262,6 +293,7 @@ import Layout from '../layouts/Layout.astro';
           Скачать в RuStore
         </a>
 
+        <!-- QR-блок (десктоп) -->
         <div class="qr-block">
           <div class="qr-frame">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QR-код для скачивания">
@@ -311,7 +343,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- ═══ FOOTER ═══ -->
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
     <footer class="footer">
       <p>
         &copy; 2026 Дерево привычек.
@@ -325,8 +359,11 @@ import Layout from '../layouts/Layout.astro';
     </footer>
   </main>
 
+  <!-- ═══════════════════════════════════════
+       СКРИПТЫ: Sticky CTA + Reveal
+       ═══════════════════════════════════════ -->
   <script>
-    // Sticky CTA — показывается после первого экрана
+    // Sticky CTA
     const stickyCta = document.getElementById('sticky-cta');
     const hero = document.querySelector('.hero');
 
@@ -344,7 +381,7 @@ import Layout from '../layouts/Layout.astro';
       ctaObserver.observe(hero);
     }
 
-    // Reveal секций при скролле
+    // Reveal при скролле
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver(
@@ -356,7 +393,7 @@ import Layout from '../layouts/Layout.astro';
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
       );
       revealEls.forEach((el) => revealObserver.observe(el));
     } else {
@@ -364,22 +401,36 @@ import Layout from '../layouts/Layout.astro';
     }
   </script>
 
+  <!-- ═══════════════════════════════════════
+       ЛОКАЛЬНЫЕ СТИЛИ СТРАНИЦЫ
+       ═══════════════════════════════════════ -->
   <style is:global>
-    /* ═══ HERO ═══ */
+    /* ═══════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════ */
     .hero {
-      padding: 2.5rem 1.25rem 0;
+      position: relative;
+      z-index: 1;
+      padding: 3rem 1.25rem 2rem;
       width: 100%;
       overflow: hidden;
     }
 
     .hero-inner {
-      max-width: 620px;
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      gap: 1.25rem;
+      max-width: 560px;
     }
 
     .hero-eyebrow {
@@ -389,20 +440,23 @@ import Layout from '../layouts/Layout.astro';
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--accent);
+      margin-bottom: 1rem;
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 10vw, 3.5rem);
+      font-size: clamp(2.1rem, 10vw, 3.6rem);
       font-weight: 900;
       letter-spacing: -0.035em;
       line-height: 1.02;
+      margin-bottom: 1rem;
     }
 
     .hero-subtitle {
       font-size: clamp(0.95rem, 4vw, 1.0625rem);
       color: var(--text-muted);
-      max-width: 420px;
-      line-height: 1.55;
+      max-width: 440px;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
     }
 
     .hero-cta {
@@ -411,34 +465,41 @@ import Layout from '../layouts/Layout.astro';
       gap: 0.625rem;
       width: 100%;
       max-width: 320px;
-      margin-top: 0.25rem;
     }
 
     .hero-cta .btn {
       width: 100%;
     }
 
-    /* ═══ ДЕРЕВО — прижато к тексту ═══ */
+    /* ═══════════════════════════════════════
+       ДЕРЕВО — мобильный: поднято выше
+       ═══════════════════════════════════════ */
+    .hero-visual {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.25rem; /* минимальный отступ, чтобы дерево было ближе к тексту */
+    }
+
     .tree-stage {
       position: relative;
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 1rem;
-      padding-bottom: 2rem;
+      padding-bottom: 0.5rem;
     }
 
     .tree-glow {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: min(90vw, 460px);
-      height: min(90vw, 460px);
+      width: min(100vw, 520px);
+      height: min(100vw, 520px);
       transform: translate(-50%, -50%);
       background: radial-gradient(
         circle,
-        rgba(138, 230, 106, 0.22) 0%,
-        rgba(138, 230, 106, 0.08) 35%,
+        rgba(138, 230, 106, 0.2) 0%,
+        rgba(138, 230, 106, 0.06) 38%,
         rgba(138, 230, 106, 0) 70%
       );
       pointer-events: none;
@@ -446,15 +507,26 @@ import Layout from '../layouts/Layout.astro';
     }
 
     @keyframes glow-pulse {
-      0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+      0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.06);
+      }
+    }
+
+    .tree-frame {
+      position: relative;
+      width: min(82vw, 340px);
+      z-index: 2;
     }
 
     .tree-svg {
-      position: relative;
-      width: min(80vw, 340px);
+      width: 100%;
       height: auto;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.7));
     }
 
     #canopy {
@@ -464,32 +536,86 @@ import Layout from '../layouts/Layout.astro';
 
     @keyframes sway {
       0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(0.5deg); }
+      50% { transform: rotate(0.45deg); }
     }
 
-    /* ═══ FEATURES ═══ */
-    .features-grid {
+    /* ═══════════════════════════════════════
+       ПЛАВАЮЩИЕ ЧАСТИЦЫ
+       ═══════════════════════════════════════ */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      opacity: 0.3;
+      filter: blur(1px);
+    }
+
+    .particle-1 {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 15%;
+      animation: float-particle 8s ease-in-out infinite;
+    }
+
+    .particle-2 {
+      width: 4px;
+      height: 4px;
+      top: 60%;
+      right: 12%;
+      animation: float-particle 11s ease-in-out infinite reverse;
+      opacity: 0.2;
+    }
+
+    .particle-3 {
+      width: 5px;
+      height: 5px;
+      bottom: 15%;
+      left: 25%;
+      animation: float-particle 9s ease-in-out infinite 1s;
+      opacity: 0.15;
+    }
+
+    @keyframes float-particle {
+      0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+      50% { transform: translate(10px, -22px); opacity: 0.5; }
+    }
+
+    /* ═══════════════════════════════════════
+       BENTO GRID
+       ═══════════════════════════════════════ */
+    .bento-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
 
-    .feature-card {
+    .bento-card {
       position: relative;
       padding: 1.75rem 1.5rem;
       border-radius: var(--radius);
       background: linear-gradient(
         160deg,
-        rgba(255, 255, 255, 0.045) 0%,
-        rgba(255, 255, 255, 0.015) 100%
+        rgba(255, 255, 255, 0.04) 0%,
+        rgba(255, 255, 255, 0.01) 100%
       );
       border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       overflow: hidden;
+      transition: border-color 0.3s var(--ease-out),
+        transform 0.3s var(--ease-out),
+        box-shadow 0.3s var(--ease-out);
     }
 
-    .feature-card::before {
+    .bento-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
+    }
+
+    .bento-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -499,12 +625,16 @@ import Layout from '../layouts/Layout.astro';
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.16),
         transparent
       );
     }
 
-    .feature-icon {
+    .bento-large {
+      /* на мобильном обычная, на десктопе займёт 2 колонки */
+    }
+
+    .bento-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -516,25 +646,37 @@ import Layout from '../layouts/Layout.astro';
       margin-bottom: 1.25rem;
     }
 
-    .feature-icon svg {
+    .bento-icon svg {
       width: 26px;
       height: 26px;
     }
 
-    .feature-title {
+    .bento-title {
       font-size: 1.125rem;
       font-weight: 800;
       letter-spacing: -0.015em;
       margin-bottom: 0.5rem;
     }
 
-    .feature-description {
+    .bento-text {
       font-size: 0.9375rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    /* ═══ STEPS ═══ */
+    .bento-accent-line {
+      position: absolute;
+      bottom: 0;
+      left: 1.5rem;
+      right: 1.5rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.4;
+    }
+
+    /* ═══════════════════════════════════════
+       STEPS
+       ═══════════════════════════════════════ */
     .steps-grid {
       list-style: none;
       display: grid;
@@ -544,10 +686,15 @@ import Layout from '../layouts/Layout.astro';
 
     .step-card {
       position: relative;
-      padding: 1.5rem 1.5rem 1.75rem;
+      padding: 1.75rem 1.5rem;
       border-radius: var(--radius);
       background: var(--surface);
       border: 1px solid var(--border);
+      transition: border-color 0.3s var(--ease-out);
+    }
+
+    .step-card:hover {
+      border-color: var(--border-strong);
     }
 
     .step-num {
@@ -556,30 +703,34 @@ import Layout from '../layouts/Layout.astro';
       font-weight: 800;
       letter-spacing: 0.2em;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
     }
 
     .step-title {
       font-size: 1.125rem;
       font-weight: 800;
       letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .step-text {
       font-size: 0.9375rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    /* ═══ FINAL CTA ═══ */
+    /* ═══════════════════════════════════════
+       FINAL CTA
+       ═══════════════════════════════════════ */
     .final-cta {
-      padding: 4rem 1.25rem 5rem;
+      position: relative;
+      z-index: 1;
+      padding: 5rem 1.25rem 6rem;
       text-align: center;
       background: radial-gradient(
         ellipse at 50% 100%,
-        rgba(138, 230, 106, 0.08) 0%,
-        transparent 60%
+        rgba(138, 230, 106, 0.07) 0%,
+        transparent 65%
       );
       border-top: 1px solid var(--border);
     }
@@ -602,15 +753,15 @@ import Layout from '../layouts/Layout.astro';
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
     }
 
     .qr-frame {
-      width: 120px;
-      height: 120px;
-      padding: 10px;
-      border-radius: 16px;
+      width: 132px;
+      height: 132px;
+      padding: 12px;
+      border-radius: 18px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       color: var(--text);
@@ -626,8 +777,12 @@ import Layout from '../layouts/Layout.astro';
       color: var(--text-muted);
     }
 
-    /* ═══ FOOTER ═══ */
+    /* ═══════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════ */
     .footer {
+      position: relative;
+      z-index: 1;
       padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
       text-align: center;
@@ -639,9 +794,9 @@ import Layout from '../layouts/Layout.astro';
     .footer a {
       color: var(--text-muted);
       text-decoration: underline;
-      text-decoration-color: rgba(255, 255, 255, 0.15);
+      text-decoration-color: rgba(255, 255, 255, 0.14);
       text-underline-offset: 3px;
-      transition: color 0.15s ease;
+      transition: color 0.2s var(--ease-out);
     }
 
     .footer a:hover {
@@ -657,10 +812,15 @@ import Layout from '../layouts/Layout.astro';
       margin-top: 0.4rem;
     }
 
-    /* ═══ ПЛАНШЕТ ═══ */
+    /* ═══════════════════════════════════════
+       ПЛАНШЕТ
+       ═══════════════════════════════════════ */
     @media (min-width: 640px) {
-      .features-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-large {
+        grid-column: span 2;
       }
       .steps-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -674,37 +834,87 @@ import Layout from '../layouts/Layout.astro';
         width: auto;
         padding: 0 2rem;
       }
-      .tree-stage {
-        margin-top: 0.5rem;
-      }
-      .tree-svg {
+      .tree-frame {
         width: min(60vw, 380px);
       }
     }
 
-    /* ═══ ДЕСКТОП ═══ */
+    /* ═══════════════════════════════════════
+       ДЕСКТОП — SPLIT HERO + BENTO
+       ═══════════════════════════════════════ */
     @media (min-width: 900px) {
       .hero {
-        padding-top: 4rem;
+        padding: 5rem 2rem 4rem;
       }
+
+      .hero-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+        min-height: 80vh;
+      }
+
+      .hero-content {
+        align-items: flex-start;
+        text-align: left;
+        max-width: 520px;
+        flex: 1;
+      }
+
       .hero-title {
         font-size: 4rem;
       }
+
       .hero-subtitle {
         max-width: 480px;
       }
+
+      .hero-cta {
+        justify-content: flex-start;
+      }
+
+      .hero-visual {
+        flex: 1;
+        margin-top: 0;
+        justify-content: flex-end;
+        perspective: 1200px;
+      }
+
       .tree-stage {
-        margin-top: 1.5rem;
-        padding-bottom: 3rem;
+        padding-bottom: 0;
       }
-      .tree-svg {
+
+      .tree-frame {
         width: 420px;
+        transform: rotateY(-4deg) rotateX(2deg);
+        transition: transform 0.6s var(--ease-out);
       }
+
+      .tree-frame:hover {
+        transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+      }
+
+      .tree-glow {
+        width: 600px;
+        height: 600px;
+      }
+
       .qr-block {
         display: flex;
       }
+
+      .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .bento-large {
+        grid-column: span 2;
+      }
+
       .section {
-        padding: 6rem 2rem;
+        padding: 7rem 2rem;
       }
     }
   </style>
