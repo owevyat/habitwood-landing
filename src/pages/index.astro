@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Дерево привычек — Трекер привычек, дневник и виджет">
   <main>
+    <!-- ═══ HERO ═══ -->
     <section class="hero">
       <div class="hero-content">
         <span class="hero-eyebrow">Трекер привычек</span>
@@ -146,5 +147,148 @@ import Layout from '../layouts/Layout.astro';
         </svg>
       </div>
     </section>
+
+    <!-- ═══ SOCIAL PROOF (Доверие) ═══ -->
+    <section class="section" style="padding-top: 0; padding-bottom: 2rem;">
+      <div style="text-align: center; color: var(--text-muted); font-size: 0.875rem;">
+        <p>Уже растят свои привычки в RuStore</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 0.5rem; font-size: 1.125rem; font-weight: 700; color: var(--text);">
+          <span style="color: var(--gold);">★★★★★</span>
+          <span>4.8</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ═══ -->
+    <section id="features" class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Возможности</span>
+        <h2 class="section-title">Всё, чтобы не бросить на второй день</h2>
+        <p class="section-subtitle">
+          Мы убрали всё лишнее и оставили только то, что реально помогает
+          формировать привычки.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌳</div>
+          <h3 class="feature-title">Визуальная мотивация</h3>
+          <p class="feature-description">
+            Каждая выполненная привычка питает дерево. Смотрите, как оно растёт
+            из семечка до цветущего сада.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Виджет и стрики</h3>
+          <p class="feature-description">
+            Держите прогресс на рабочем столе. Отслеживайте серии дней и не
+            теряйте мотивацию.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📔</div>
+          <h3 class="feature-title">Дневник настроения</h3>
+          <p class="feature-description">
+            Записывайте мысли и эмоции. Понимайте, что влияет на вашу
+            продуктивность и состояние.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Как это работает</span>
+        <h2 class="section-title">Три шага до первой привычки</h2>
+        <p class="section-subtitle">Никаких сложных настроек. Начните прямо сейчас.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-content">
+            <h3>Посадите семечко</h3>
+            <p>Создайте первую привычку: читать, пить воду или делать зарядку.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-content">
+            <h3>Питайте дерево</h3>
+            <p>Отмечайте выполнение каждый день. Смотрите, как растёт ваш сад.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-content">
+            <h3>Собирайте плоды</h3>
+            <p>Достигайте целей и наблюдайте, как меняется ваша жизнь.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FINAL CTA ═══ -->
+    <section class="final-cta">
+      <h2 class="section-title">Посадите своё первое семечко</h2>
+      <p class="section-subtitle">
+        Бесплатно. Без рекламы. Без встроенных покупок.
+      </p>
+      <a
+        href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener"
+      >
+        Скачать в RuStore
+      </a>
+
+      <!-- QR-код для десктопа -->
+      <div class="qr-code">
+        <p>Наведите камеру телефона, чтобы скачать</p>
+        <div style="width: 120px; height: 120px; background-color: #1A1A1A; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--text-muted);">
+          [QR-код]
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <p>
+        © 2026 Дерево привычек.
+        <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a> ·
+        <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
+      </p>
+      <p style="margin-top: 0.5rem;">
+        Есть вопросы? <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
+      </p>
+    </footer>
   </main>
+
+  <!-- Скрипт для появления Sticky CTA -->
+  <script>
+    const stickyCta = document.getElementById('sticky-cta');
+    const hero = document.querySelector('.hero');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            stickyCta.classList.add('is-visible');
+            stickyCta.setAttribute('aria-hidden', 'false');
+          } else {
+            stickyCta.classList.remove('is-visible');
+            stickyCta.setAttribute('aria-hidden', 'true');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (hero) {
+      observer.observe(hero);
+    }
+  </script>
 </Layout>
