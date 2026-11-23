@@ -8,17 +8,22 @@ import Layout from '../layouts/Layout.astro';
 
   <main>
     <!-- ═══════════════════════════════════════
-         HERO — мобильный: вертикаль, десктоп: split
+         HERO
          ═══════════════════════════════════════ -->
     <section class="hero">
       <div class="hero-inner">
-        <!-- Левая колонка (текст) -->
         <div class="hero-content">
           <span class="hero-eyebrow">Трекер привычек</span>
 
           <h1 class="hero-title">
-            Растите <span class="accent">дерево</span>,<br />
-            меняя жизнь
+            <span class="hero-line">
+              <span class="hero-word" style="--d: 0.05s">Растите</span>
+              <span class="hero-word accent" style="--d: 0.15s">дерево,</span>
+            </span>
+            <span class="hero-line">
+              <span class="hero-word" style="--d: 0.25s">меняя</span>
+              <span class="hero-word" style="--d: 0.35s">жизнь</span>
+            </span>
           </h1>
 
           <p class="hero-subtitle">
@@ -39,12 +44,13 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Правая колонка (дерево) -->
         <div class="hero-visual">
-          <div class="tree-stage">
+          <div class="tree-stage" id="tree-stage">
             <div class="tree-glow" aria-hidden="true"></div>
+            <div class="fog fog-1" aria-hidden="true"></div>
+            <div class="fog fog-2" aria-hidden="true"></div>
 
-            <div class="tree-frame">
+            <div class="tree-frame" id="tree-frame">
               <svg
                 class="tree-svg"
                 viewBox="0 0 280 360"
@@ -52,7 +58,6 @@ import Layout from '../layouts/Layout.astro';
                 role="img"
                 aria-label="Дерево привычек в стадии цветения"
               >
-                <!-- ═══ СТАТИЧНАЯ ЧАСТЬ ═══ -->
                 <g id="static-parts">
                   <g id="island-shadow">
                     <ellipse cx="140" cy="346" rx="42" ry="4" fill="#2A1A10" opacity="0.4" />
@@ -121,7 +126,6 @@ import Layout from '../layouts/Layout.astro';
                   </g>
                 </g>
 
-                <!-- ═══ КРОНА (анимируется) ═══ -->
                 <g id="canopy">
                   <g id="canopy-back">
                     <ellipse cx="125" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
@@ -162,17 +166,17 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
 
-            <!-- Плавающие частицы (премиум-эффект) -->
             <span class="particle particle-1" aria-hidden="true"></span>
             <span class="particle particle-2" aria-hidden="true"></span>
             <span class="particle particle-3" aria-hidden="true"></span>
+            <span class="particle particle-4" aria-hidden="true"></span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         FEATURES — Bento Grid (десктоп) / Stack (мобайл)
+         FEATURES
          ═══════════════════════════════════════ -->
     <section id="features" class="section reveal">
       <header class="section-header">
@@ -181,14 +185,12 @@ import Layout from '../layouts/Layout.astro';
           Всё, чтобы <span class="accent">не бросить</span> на второй день
         </h2>
         <p class="section-subtitle">
-          Мы убрали всё лишнее. Осталось только то, что действительно помогает
-          формировать привычки.
+          Мы убрали всё лишнее. Осталось только то, что действительно помогает.
         </p>
       </header>
 
       <div class="bento-grid">
-        <!-- Карточка 1 — большая -->
-        <article class="bento-card bento-large reveal reveal-delay-1">
+        <article class="bento-card bento-large reveal reveal-d1" data-glow>
           <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 28 V17" />
@@ -203,11 +205,13 @@ import Layout from '../layouts/Layout.astro';
             из семечка до цветущего сада. Это не просто галочки — это живой
             организм, который реагирует на вашу дисциплину.
           </p>
-          <div class="bento-accent-line" aria-hidden="true"></div>
+          <div class="bento-metric">
+            <span class="bento-metric-num">21</span>
+            <span class="bento-metric-label">день до первого цветения</span>
+          </div>
         </article>
 
-        <!-- Карточка 2 -->
-        <article class="bento-card reveal reveal-delay-2">
+        <article class="bento-card reveal reveal-d2" data-glow>
           <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <rect x="6" y="6" width="8" height="8" rx="2" />
@@ -223,8 +227,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </article>
 
-        <!-- Карточка 3 -->
-        <article class="bento-card reveal reveal-delay-3">
+        <article class="bento-card reveal reveal-d3" data-glow>
           <div class="bento-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M8 6 h14 a2 2 0 0 1 2 2 v18 h-14 a2 2 0 0 1 -2 -2 v-16 a2 2 0 0 1 2 -2 z" />
@@ -235,14 +238,14 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="bento-title">Дневник настроения</h3>
           <p class="bento-text">
             Записывайте мысли и эмоции. Понимайте, что влияет на вашу
-            продуктивность и состояние. Приватно и локально.
+            продуктивность. Приватно и локально.
           </p>
         </article>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         HOW IT WORKS — Шаги
+         HOW IT WORKS
          ═══════════════════════════════════════ -->
     <section class="section reveal">
       <header class="section-header">
@@ -254,17 +257,17 @@ import Layout from '../layouts/Layout.astro';
       </header>
 
       <ol class="steps-grid">
-        <li class="step-card reveal reveal-delay-1">
+        <li class="step-card reveal reveal-d1" data-glow>
           <span class="step-num" aria-hidden="true">01</span>
           <h3 class="step-title">Посадите семечко</h3>
           <p class="step-text">Создайте первую привычку: читать, пить воду или делать зарядку.</p>
         </li>
-        <li class="step-card reveal reveal-delay-2">
+        <li class="step-card reveal reveal-d2" data-glow>
           <span class="step-num" aria-hidden="true">02</span>
           <h3 class="step-title">Питайте дерево</h3>
           <p class="step-text">Отмечайте выполнение каждый день. Смотрите, как растёт ваш сад.</p>
         </li>
-        <li class="step-card reveal reveal-delay-3">
+        <li class="step-card reveal reveal-d3" data-glow>
           <span class="step-num" aria-hidden="true">03</span>
           <h3 class="step-title">Собирайте плоды</h3>
           <p class="step-text">Достигайте целей и наблюдайте, как меняется ваша жизнь.</p>
@@ -293,7 +296,6 @@ import Layout from '../layouts/Layout.astro';
           Скачать в RuStore
         </a>
 
-        <!-- QR-блок (десктоп) -->
         <div class="qr-block">
           <div class="qr-frame">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QR-код для скачивания">
@@ -343,9 +345,6 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         FOOTER
-         ═══════════════════════════════════════ -->
     <footer class="footer">
       <p>
         &copy; 2026 Дерево привычек.
@@ -359,11 +358,10 @@ import Layout from '../layouts/Layout.astro';
     </footer>
   </main>
 
-  <!-- ═══════════════════════════════════════
-       СКРИПТЫ: Sticky CTA + Reveal
-       ═══════════════════════════════════════ -->
   <script>
+    // ═══════════════════════════════════════
     // Sticky CTA
+    // ═══════════════════════════════════════
     const stickyCta = document.getElementById('sticky-cta');
     const hero = document.querySelector('.hero');
 
@@ -381,7 +379,9 @@ import Layout from '../layouts/Layout.astro';
       ctaObserver.observe(hero);
     }
 
+    // ═══════════════════════════════════════
     // Reveal при скролле
+    // ═══════════════════════════════════════
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver(
@@ -393,17 +393,74 @@ import Layout from '../layouts/Layout.astro';
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
       );
       revealEls.forEach((el) => revealObserver.observe(el));
     } else {
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
+
+    // ═══════════════════════════════════════
+    // Блик за курсором (только для мыши)
+    // ═══════════════════════════════════════
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (hasFinePointer && !reduceMotion) {
+      const glowCards = document.querySelectorAll('[data-glow]');
+      glowCards.forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        }, { passive: true });
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // Параллакс дерева (десктоп, только если есть мышь)
+    // ═══════════════════════════════════════
+    const treeFrame = document.getElementById('tree-frame');
+    const treeStage = document.getElementById('tree-stage');
+
+    if (hasFinePointer && !reduceMotion && treeFrame && treeStage) {
+      let rafId = null;
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      const animate = () => {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+        treeFrame.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+        if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+          rafId = requestAnimationFrame(animate);
+        } else {
+          rafId = null;
+        }
+      };
+
+      treeStage.addEventListener('pointermove', (e) => {
+        const rect = treeStage.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        // Смещение максимум ±12px
+        targetX = ((e.clientX - cx) / rect.width) * 24;
+        targetY = ((e.clientY - cy) / rect.height) * 24;
+
+        if (!rafId) rafId = requestAnimationFrame(animate);
+      }, { passive: true });
+
+      treeStage.addEventListener('pointerleave', () => {
+        targetX = 0;
+        targetY = 0;
+        if (!rafId) rafId = requestAnimationFrame(animate);
+      });
+    }
   </script>
 
-  <!-- ═══════════════════════════════════════
-       ЛОКАЛЬНЫЕ СТИЛИ СТРАНИЦЫ
-       ═══════════════════════════════════════ -->
   <style is:global>
     /* ═══════════════════════════════════════
        HERO
@@ -411,7 +468,7 @@ import Layout from '../layouts/Layout.astro';
     .hero {
       position: relative;
       z-index: 1;
-      padding: 3rem 1.25rem 2rem;
+      padding: 2.5rem 1.25rem 1.5rem;
       width: 100%;
       overflow: hidden;
     }
@@ -422,7 +479,7 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 1.25rem;
     }
 
     .hero-content {
@@ -440,7 +497,7 @@ import Layout from '../layouts/Layout.astro';
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     .hero-title {
@@ -448,7 +505,32 @@ import Layout from '../layouts/Layout.astro';
       font-weight: 900;
       letter-spacing: -0.035em;
       line-height: 1.02;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    /* Появление слов */
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+      animation: word-in 0.85s var(--ease-out) forwards;
+      animation-delay: var(--d, 0s);
+    }
+
+    .hero-line:nth-child(2) .hero-word {
+      /* вторую строку чуть позже */
+    }
+
+    @keyframes word-in {
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
     }
 
     .hero-subtitle {
@@ -456,7 +538,7 @@ import Layout from '../layouts/Layout.astro';
       color: var(--text-muted);
       max-width: 440px;
       line-height: 1.6;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-cta {
@@ -472,13 +554,13 @@ import Layout from '../layouts/Layout.astro';
     }
 
     /* ═══════════════════════════════════════
-       ДЕРЕВО — мобильный: поднято выше
+       ДЕРЕВО
        ═══════════════════════════════════════ */
     .hero-visual {
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 0.25rem; /* минимальный отступ, чтобы дерево было ближе к тексту */
+      margin-top: 0;
     }
 
     .tree-stage {
@@ -487,6 +569,7 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       justify-content: center;
       padding-bottom: 0.5rem;
+      will-change: transform;
     }
 
     .tree-glow {
@@ -495,43 +578,88 @@ import Layout from '../layouts/Layout.astro';
       left: 50%;
       width: min(100vw, 520px);
       height: min(100vw, 520px);
-      transform: translate(-50%, -50%);
+      transform: translate3d(-50%, -50%, 0);
       background: radial-gradient(
         circle,
-        rgba(138, 230, 106, 0.2) 0%,
+        rgba(138, 230, 106, 0.22) 0%,
         rgba(138, 230, 106, 0.06) 38%,
         rgba(138, 230, 106, 0) 70%
       );
       pointer-events: none;
-      animation: glow-pulse 5s ease-in-out infinite;
+      animation: glow-pulse 6s ease-in-out infinite;
+      will-change: transform, opacity;
     }
 
     @keyframes glow-pulse {
       0%, 100% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.75;
+        transform: translate3d(-50%, -50%, 0) scale(1);
       }
       50% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1.06);
+        transform: translate3d(-50%, -50%, 0) scale(1.07);
       }
+    }
+
+    /* ═══════════════════════════════════════
+       ЖИВОЙ ТУМАН ЗА ДЕРЕВОМ
+       ═══════════════════════════════════════ */
+    .fog {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(40px);
+      opacity: 0.4;
+      mix-blend-mode: screen;
+    }
+
+    .fog-1 {
+      width: 320px;
+      height: 320px;
+      top: 20%;
+      left: 5%;
+      background: radial-gradient(circle, rgba(138, 230, 106, 0.25) 0%, transparent 70%);
+      animation: fog-drift-1 18s ease-in-out infinite alternate;
+    }
+
+    .fog-2 {
+      width: 260px;
+      height: 260px;
+      bottom: 15%;
+      right: 5%;
+      background: radial-gradient(circle, rgba(255, 217, 102, 0.12) 0%, transparent 70%);
+      animation: fog-drift-2 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes fog-drift-1 {
+      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.3; }
+      100% { transform: translate3d(40px, -30px, 0) scale(1.15); opacity: 0.5; }
+    }
+
+    @keyframes fog-drift-2 {
+      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.4; }
+      100% { transform: translate3d(-40px, 20px, 0) scale(1.2); opacity: 0.25; }
     }
 
     .tree-frame {
       position: relative;
       width: min(82vw, 340px);
       z-index: 2;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
     }
 
     .tree-svg {
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.7));
+      /* Тень упрощена для производительности */
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
     }
 
     #canopy {
       transform-origin: 140px 250px;
       animation: sway 9s ease-in-out infinite;
+      will-change: transform;
     }
 
     @keyframes sway {
@@ -547,131 +675,174 @@ import Layout from '../layouts/Layout.astro';
       border-radius: 50%;
       background: var(--accent);
       pointer-events: none;
-      opacity: 0.3;
-      filter: blur(1px);
+      will-change: transform, opacity;
     }
 
     .particle-1 {
-      width: 6px;
-      height: 6px;
-      top: 20%;
-      left: 15%;
-      animation: float-particle 8s ease-in-out infinite;
+      width: 5px;
+      height: 5px;
+      top: 22%;
+      left: 16%;
+      animation: float-1 9s ease-in-out infinite;
+      opacity: 0.5;
     }
 
     .particle-2 {
-      width: 4px;
-      height: 4px;
-      top: 60%;
-      right: 12%;
-      animation: float-particle 11s ease-in-out infinite reverse;
-      opacity: 0.2;
+      width: 3px;
+      height: 3px;
+      top: 58%;
+      right: 14%;
+      animation: float-2 12s ease-in-out infinite reverse;
+      opacity: 0.35;
     }
 
     .particle-3 {
-      width: 5px;
-      height: 5px;
-      bottom: 15%;
-      left: 25%;
-      animation: float-particle 9s ease-in-out infinite 1s;
-      opacity: 0.15;
+      width: 4px;
+      height: 4px;
+      bottom: 18%;
+      left: 24%;
+      animation: float-3 10s ease-in-out infinite 1s;
+      opacity: 0.25;
     }
 
-    @keyframes float-particle {
-      0%, 100% { transform: translate(0, 0); opacity: 0.2; }
-      50% { transform: translate(10px, -22px); opacity: 0.5; }
+    .particle-4 {
+      width: 3px;
+      height: 3px;
+      top: 40%;
+      right: 20%;
+      animation: float-1 14s ease-in-out infinite 2s;
+      opacity: 0.3;
+    }
+
+    @keyframes float-1 {
+      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.3; }
+      50% { transform: translate3d(12px, -24px, 0); opacity: 0.6; }
+    }
+
+    @keyframes float-2 {
+      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+      50% { transform: translate3d(-16px, -18px, 0); opacity: 0.5; }
+    }
+
+    @keyframes float-3 {
+      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+      50% { transform: translate3d(8px, -30px, 0); opacity: 0.45; }
     }
 
     /* ═══════════════════════════════════════
-       BENTO GRID
+       BENTO — без blur, с бликом за курсором
        ═══════════════════════════════════════ */
     .bento-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .bento-card {
       position: relative;
-      padding: 1.75rem 1.5rem;
+      padding: 1.5rem 1.4rem;
       border-radius: var(--radius);
-      background: linear-gradient(
-        160deg,
-        rgba(255, 255, 255, 0.04) 0%,
-        rgba(255, 255, 255, 0.01) 100%
-      );
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%),
+        var(--surface);
       border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       overflow: hidden;
       transition: border-color 0.3s var(--ease-out),
-        transform 0.3s var(--ease-out),
-        box-shadow 0.3s var(--ease-out);
+        transform 0.3s var(--ease-out);
+      contain: layout style paint;
+    }
+
+    /* Блик за курсором (видимый только при наведении) */
+    .bento-card::before,
+    .step-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        400px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(138, 230, 106, 0.14),
+        transparent 45%
+      );
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-out);
+      pointer-events: none;
+    }
+
+    .bento-card:hover::before,
+    .step-card:hover::before {
+      opacity: 1;
     }
 
     .bento-card:hover {
       border-color: var(--border-strong);
-      transform: translateY(-3px);
-      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
+      transform: translate3d(0, -2px, 0);
     }
 
-    .bento-card::before {
+    /* Верхняя световая линия */
+    .bento-card::after,
+    .step-card::after {
       content: "";
       position: absolute;
       top: 0;
-      left: 1.5rem;
-      right: 1.5rem;
+      left: 1.25rem;
+      right: 1.25rem;
       height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.16),
-        transparent
-      );
-    }
-
-    .bento-large {
-      /* на мобильном обычная, на десктопе займёт 2 колонки */
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+      pointer-events: none;
     }
 
     .bento-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(138, 230, 106, 0.1);
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-soft);
       color: var(--accent);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .bento-icon svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
     }
 
     .bento-title {
-      font-size: 1.125rem;
+      font-size: 1.0625rem;
       font-weight: 800;
       letter-spacing: -0.015em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .bento-text {
-      font-size: 0.9375rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
-    .bento-accent-line {
-      position: absolute;
-      bottom: 0;
-      left: 1.5rem;
-      right: 1.5rem;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.4;
+    .bento-metric {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .bento-metric-num {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .bento-metric-label {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 600;
     }
 
     /* ═══════════════════════════════════════
@@ -681,42 +852,45 @@ import Layout from '../layouts/Layout.astro';
       list-style: none;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .step-card {
       position: relative;
-      padding: 1.75rem 1.5rem;
+      padding: 1.5rem 1.4rem;
       border-radius: var(--radius);
       background: var(--surface);
       border: 1px solid var(--border);
-      transition: border-color 0.3s var(--ease-out);
+      overflow: hidden;
+      transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+      contain: layout style paint;
     }
 
     .step-card:hover {
       border-color: var(--border-strong);
+      transform: translate3d(0, -2px, 0);
     }
 
     .step-num {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.2em;
       color: var(--accent);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .step-title {
-      font-size: 1.125rem;
+      font-size: 1.0625rem;
       font-weight: 800;
       letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .step-text {
-      font-size: 0.9375rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     /* ═══════════════════════════════════════
@@ -725,11 +899,11 @@ import Layout from '../layouts/Layout.astro';
     .final-cta {
       position: relative;
       z-index: 1;
-      padding: 5rem 1.25rem 6rem;
+      padding: 4rem 1.25rem 4.5rem;
       text-align: center;
       background: radial-gradient(
         ellipse at 50% 100%,
-        rgba(138, 230, 106, 0.07) 0%,
+        rgba(138, 230, 106, 0.08) 0%,
         transparent 65%
       );
       border-top: 1px solid var(--border);
@@ -741,11 +915,11 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1.1rem;
     }
 
     .final-cta .btn {
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
       min-width: 260px;
     }
 
@@ -753,15 +927,15 @@ import Layout from '../layouts/Layout.astro';
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
-      margin-top: 1.75rem;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
     }
 
     .qr-frame {
-      width: 132px;
-      height: 132px;
+      width: 128px;
+      height: 128px;
       padding: 12px;
-      border-radius: 18px;
+      border-radius: 16px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       color: var(--text);
@@ -783,12 +957,12 @@ import Layout from '../layouts/Layout.astro';
     .footer {
       position: relative;
       z-index: 1;
-      padding: 2rem 1.25rem calc(2rem + env(safe-area-inset-bottom));
+      padding: 1.75rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
       text-align: center;
       font-size: 0.8125rem;
       color: var(--text-dim);
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     .footer a {
@@ -809,7 +983,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .footer-mail {
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
     }
 
     /* ═══════════════════════════════════════
@@ -818,12 +992,14 @@ import Layout from '../layouts/Layout.astro';
     @media (min-width: 640px) {
       .bento-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
       }
       .bento-large {
         grid-column: span 2;
       }
       .steps-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
       }
       .hero-cta {
         flex-direction: row;
@@ -840,11 +1016,11 @@ import Layout from '../layouts/Layout.astro';
     }
 
     /* ═══════════════════════════════════════
-       ДЕСКТОП — SPLIT HERO + BENTO
+       ДЕСКТОП — SPLIT HERO
        ═══════════════════════════════════════ */
     @media (min-width: 900px) {
       .hero {
-        padding: 5rem 2rem 4rem;
+        padding: 4rem 2rem 3rem;
       }
 
       .hero-inner {
@@ -852,7 +1028,7 @@ import Layout from '../layouts/Layout.astro';
         align-items: center;
         justify-content: space-between;
         gap: 4rem;
-        min-height: 80vh;
+        min-height: 78vh;
       }
 
       .hero-content {
@@ -876,28 +1052,26 @@ import Layout from '../layouts/Layout.astro';
 
       .hero-visual {
         flex: 1;
-        margin-top: 0;
         justify-content: flex-end;
-        perspective: 1200px;
-      }
-
-      .tree-stage {
-        padding-bottom: 0;
       }
 
       .tree-frame {
         width: 420px;
-        transform: rotateY(-4deg) rotateX(2deg);
-        transition: transform 0.6s var(--ease-out);
-      }
-
-      .tree-frame:hover {
-        transform: rotateY(0deg) rotateX(0deg) scale(1.02);
       }
 
       .tree-glow {
         width: 600px;
         height: 600px;
+      }
+
+      .fog-1 {
+        width: 460px;
+        height: 460px;
+      }
+
+      .fog-2 {
+        width: 360px;
+        height: 360px;
       }
 
       .qr-block {
@@ -906,7 +1080,7 @@ import Layout from '../layouts/Layout.astro';
 
       .bento-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
+        gap: 1.1rem;
       }
 
       .bento-large {
@@ -914,7 +1088,23 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .section {
-        padding: 7rem 2rem;
+        padding: 5rem 2rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       УМЕНЬШЕННОЕ ДВИЖЕНИЕ
+       ═══════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-word {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .fog,
+      .particle {
+        animation: none;
+        opacity: 0.2;
       }
     }
   </style>

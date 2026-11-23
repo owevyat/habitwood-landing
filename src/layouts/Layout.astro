@@ -20,7 +20,6 @@ const { title } = Astro.props;
   <body>
     <slot />
 
-    <!-- Sticky CTA (только мобильные) -->
     <div id="sticky-cta" class="sticky-cta" aria-hidden="true">
       <a
         href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
@@ -36,7 +35,7 @@ const { title } = Astro.props;
 
 <style is:global>
   /* ═══════════════════════════════════════════
-     ДИЗАЙН-ТОКЕНЫ — премиальный тёмный минимализм
+     ТОКЕНЫ
      ═══════════════════════════════════════════ */
   :root {
     --bg: #050505;
@@ -47,22 +46,21 @@ const { title } = Astro.props;
     --text-muted: #8C8C8C;
     --text-dim: #5A5A5A;
     --accent: #8AE66A;
-    --accent-glow: rgba(138, 230, 106, 0.16);
+    --accent-soft: rgba(138, 230, 106, 0.14);
     --accent-dark: #081006;
     --gold: #FFD966;
     --border: rgba(255, 255, 255, 0.07);
-    --border-strong: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.13);
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --radius-sm: 14px;
-    --radius: 22px;
-    --radius-lg: 32px;
+    --radius: 20px;
+    --radius-lg: 28px;
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    --header-h: 64px;
   }
 
   /* ═══════════════════════════════════════════
-     СБРОС И БАЗА
+     СБРОС + ОПТИМИЗАЦИЯ
      ═══════════════════════════════════════════ */
   *,
   *::before,
@@ -96,8 +94,9 @@ const { title } = Astro.props;
     -moz-osx-font-smoothing: grayscale;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
-    /* Запас снизу, чтобы sticky CTA не перекрывал контент */
-    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    /* Оптимизация: не пересчитывать text-rendering */
+    text-rendering: optimizeSpeed;
   }
 
   a {
@@ -122,18 +121,20 @@ const { title } = Astro.props;
   }
 
   /* ═══════════════════════════════════════════
-     ТИПОГРАФИКА И СЕКЦИИ
+     СЕКЦИИ — компактные отступы
      ═══════════════════════════════════════════ */
   .section {
-    padding: 5rem 1.25rem;
+    padding: 3.5rem 1.25rem;
     max-width: 1120px;
     margin: 0 auto;
     width: 100%;
+    /* Оптимизация: изоляция layout/paint */
+    contain: layout style;
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
@@ -146,11 +147,11 @@ const { title } = Astro.props;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .section-title {
-    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+    font-size: clamp(1.7rem, 6vw, 2.5rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
@@ -159,8 +160,8 @@ const { title } = Astro.props;
   .section-subtitle {
     font-size: clamp(0.95rem, 3.6vw, 1.0625rem);
     color: var(--text-muted);
-    margin-top: 1rem;
-    line-height: 1.6;
+    margin-top: 0.75rem;
+    line-height: 1.55;
   }
 
   .accent {
@@ -171,11 +172,12 @@ const { title } = Astro.props;
      КНОПКИ
      ═══════════════════════════════════════════ */
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 54px;
-    padding: 0 1.85rem;
+    min-height: 52px;
+    padding: 0 1.75rem;
     border-radius: 999px;
     font-weight: 700;
     font-size: 1rem;
@@ -185,6 +187,9 @@ const { title } = Astro.props;
       background-color 0.2s var(--ease-out);
     touch-action: manipulation;
     white-space: nowrap;
+    /* Оптимизация */
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .btn:active {
@@ -194,12 +199,12 @@ const { title } = Astro.props;
   .btn-primary {
     background-color: var(--accent);
     color: var(--accent-dark);
-    box-shadow: 0 10px 32px -12px var(--accent-glow),
+    box-shadow: 0 8px 24px -10px rgba(138, 230, 106, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 16px 44px -12px rgba(138, 230, 106, 0.35),
+    box-shadow: 0 14px 36px -12px rgba(138, 230, 106, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
@@ -211,11 +216,11 @@ const { title } = Astro.props;
 
   .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.22);
   }
 
   /* ═══════════════════════════════════════════
-     STICKY CTA — деликатная, с safe-area
+     STICKY CTA
      ═══════════════════════════════════════════ */
   .sticky-cta {
     position: fixed;
@@ -224,13 +229,14 @@ const { title } = Astro.props;
     width: calc(100% - 2rem);
     max-width: 380px;
     z-index: 100;
-    transform: translate(-50%, calc(100% + 3rem));
+    transform: translate3d(-50%, calc(100% + 3rem), 0);
     transition: transform 0.4s var(--ease-out);
     pointer-events: none;
+    will-change: transform;
   }
 
   .sticky-cta.is-visible {
-    transform: translate(-50%, 0);
+    transform: translate3d(-50%, 0, 0);
     pointer-events: auto;
   }
 
@@ -239,14 +245,14 @@ const { title } = Astro.props;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 54px;
+    min-height: 52px;
     padding: 0 1.5rem;
     border-radius: 999px;
     font-weight: 700;
     font-size: 1rem;
     background-color: var(--accent);
     color: var(--accent-dark);
-    box-shadow: 0 12px 40px -10px rgba(138, 230, 106, 0.45),
+    box-shadow: 0 12px 40px -10px rgba(138, 230, 106, 0.5),
       0 0 0 1px rgba(138, 230, 106, 0.12);
     transition: transform 0.15s var(--ease-out);
   }
@@ -255,7 +261,6 @@ const { title } = Astro.props;
     transform: scale(0.97);
   }
 
-  /* Скрываем sticky на десктопе */
   @media (min-width: 900px) {
     .sticky-cta {
       display: none;
@@ -266,26 +271,27 @@ const { title } = Astro.props;
   }
 
   /* ═══════════════════════════════════════════
-     REVEAL-АНИМАЦИИ (IntersectionObserver)
+     REVEAL
      ═══════════════════════════════════════════ */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    will-change: transform, opacity;
   }
 
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
   }
 
-  /* Задержка для каскада карточек */
-  .reveal-delay-1 { transition-delay: 0.08s; }
-  .reveal-delay-2 { transition-delay: 0.16s; }
-  .reveal-delay-3 { transition-delay: 0.24s; }
+  .reveal-d1 { transition-delay: 0.07s; }
+  .reveal-d2 { transition-delay: 0.14s; }
+  .reveal-d3 { transition-delay: 0.21s; }
 
   /* ═══════════════════════════════════════════
-     ДОСТУПНОСТЬ: уменьшение движения
+     ДОСТУПНОСТЬ
      ═══════════════════════════════════════════ */
   @media (prefers-reduced-motion: reduce) {
     .reveal {
@@ -293,31 +299,31 @@ const { title } = Astro.props;
       transform: none;
       transition: none;
     }
-    #canopy {
-      animation: none;
-    }
-    .tree-glow {
-      animation: none;
+    #canopy,
+    .tree-glow,
+    .fog,
+    .particle,
+    .hero-word {
+      animation: none !important;
     }
     html {
       scroll-behavior: auto;
     }
-    .hero-visual {
-      animation: none;
-    }
   }
 
   /* ═══════════════════════════════════════════
-     ФОНОВЫЕ СЛОИ (глобальные)
+     ФОНОВЫЕ СЛОИ (оптимизированы — без blur)
      ═══════════════════════════════════════════ */
   .bg-noise {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 180px 180px;
+    /* Оптимизация */
+    transform: translateZ(0);
   }
 
   .bg-grid {
@@ -325,11 +331,12 @@ const { title } = Astro.props;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.03;
+    opacity: 0.025;
     background-image: linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+    transform: translateZ(0);
   }
 </style>
