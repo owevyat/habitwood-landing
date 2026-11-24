@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Дерево привычек — Визуальный трекер привычек">
+<Layout title="Дерево привычек – Визуальный трекер привычек">
   <div class="bg-noise" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
@@ -21,14 +21,14 @@ import Layout from '../layouts/Layout.astro';
               <span class="hero-word accent" style="--d: 0.15s">дерево,</span>
             </span>
             <span class="hero-line">
-              <span class="hero-word" style="--d: 0.25s">меняя</span>
+              <span class="hero-word accent" style="--d: 0.25s">меняя</span>
               <span class="hero-word" style="--d: 0.35s">жизнь</span>
             </span>
           </h1>
 
           <p class="hero-subtitle">
             Визуальный трекер привычек, который превращает рутину в игру.
-            Дерево, дневник и виджет — всё в одном приложении.
+            Дерево, дневник и виджет – всё в одном приложении.
           </p>
 
           <div class="hero-cta">
@@ -175,24 +175,23 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══════════════════════════════════════
-         СЕКЦИЯ 2 — ТРИ КИТА
+         СЕКЦИЯ 2 — ТРИ ИНСТРУМЕНТА
          ═══════════════════════════════════════ -->
     <section id="kits" class="section reveal">
       <header class="section-header">
-        <span class="eyebrow">Три кита</span>
         <h2 class="section-title">
           Три инструмента, которые <span class="accent">меняют привычки</span>
         </h2>
         <p class="section-subtitle">
-          Не просто галочки. Три механики, которые работают вместе — или по отдельности.
+          Не просто галочки. Три механики, которые работают вместе – или по отдельности.
         </p>
       </header>
 
       <div class="kits-grid">
-        <!-- КИТ 1 — Дерево -->
+        <!-- КИТ 1 – Дерево -->
         <article class="kit-card reveal reveal-d1" data-glow>
-          <div class="kit-visual kit-visual-tree" aria-hidden="true">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <div class="kit-showcase">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <ellipse cx="60" cy="108" rx="26" ry="3" fill="#2A1A10" opacity="0.5" />
               <path d="M60 108 C59 100 60 92 60 84" stroke="#8A6538" stroke-width="3" stroke-linecap="round" fill="none" />
               <path d="M60 84 C59 82 60 80 60 78" stroke="#8A6538" stroke-width="2.4" stroke-linecap="round" fill="none" />
@@ -210,18 +209,20 @@ import Layout from '../layouts/Layout.astro';
             </svg>
           </div>
 
-          <span class="kit-label">01 — Мотивация</span>
-          <h3 class="kit-title">Дерево</h3>
-          <p class="kit-text">
-            Каждая выполненная привычка питает дерево. Вы видите физический
-            результат дисциплины — от ростка до цветущего сада.
-          </p>
+          <div class="kit-body">
+            <span class="kit-label">Мотивация</span>
+            <h3 class="kit-title">Дерево</h3>
+            <p class="kit-text">
+              Каждая выполненная привычка питает дерево. Вы видите физический
+              результат дисциплины – от ростка до цветущего сада.
+            </p>
+          </div>
         </article>
 
-        <!-- КИТ 2 — Виджет -->
+        <!-- КИТ 2 – Виджет -->
         <article class="kit-card reveal reveal-d2" data-glow>
-          <div class="kit-visual" aria-hidden="true">
-            <div class="widget-mock">
+          <div class="kit-showcase">
+            <div class="widget-mock" aria-hidden="true">
               <div class="widget-mock-head">
                 <span class="widget-mock-label">Стрик</span>
                 <svg class="widget-mock-flame" viewBox="0 0 16 16" fill="none">
@@ -234,18 +235,20 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <span class="kit-label">02 — Прогресс</span>
-          <h3 class="kit-title">Виджет</h3>
-          <p class="kit-text">
-            Стрик и количество выполненных привычек — прямо на рабочем столе.
-            Не нужно открывать приложение, чтобы увидеть прогресс.
-          </p>
+          <div class="kit-body">
+            <span class="kit-label">Прогресс</span>
+            <h3 class="kit-title">Виджет</h3>
+            <p class="kit-text">
+              Стрик и количество выполненных привычек – прямо на рабочем столе.
+              Не нужно открывать приложение, чтобы увидеть прогресс.
+            </p>
+          </div>
         </article>
 
-        <!-- КИТ 3 — Дневник -->
+        <!-- КИТ 3 – Дневник -->
         <article class="kit-card reveal reveal-d3" data-glow>
-          <div class="kit-visual" aria-hidden="true">
-            <div class="diary-mock">
+          <div class="kit-showcase">
+            <div class="diary-mock" aria-hidden="true">
               <div class="diary-mock-head">
                 <span class="diary-mock-dot" style="background:#8AE66A"></span>
                 <span class="diary-mock-date">24 ноя</span>
@@ -256,18 +259,20 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <span class="kit-label">03 — Рефлексия</span>
-          <h3 class="kit-title">Дневник</h3>
-          <p class="kit-text">
-            Записывайте мысли, отслеживайте настроение, понимайте триггеры.
-            Всё хранится локально и приватно.
-          </p>
+          <div class="kit-body">
+            <span class="kit-label">Рефлексия</span>
+            <h3 class="kit-title">Дневник</h3>
+            <p class="kit-text">
+              Записывайте мысли, отслеживайте настроение, понимайте триггеры.
+              Всё хранится локально и приватно.
+            </p>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         СЕКЦИЯ 3 — ФИНАЛ
+         СЕКЦИЯ 3 – ФИНАЛ
          ═══════════════════════════════════════ -->
     <section class="final-cta reveal">
       <div class="final-inner">
@@ -297,64 +302,39 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="qr-block">
           <div class="qr-frame">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QR-код для скачивания">
-              <rect x="4" y="4" width="20" height="20" stroke="currentColor" stroke-width="2.5" />
-              <rect x="10" y="10" width="8" height="8" fill="currentColor" />
-              <rect x="56" y="4" width="20" height="20" stroke="currentColor" stroke-width="2.5" />
-              <rect x="62" y="10" width="8" height="8" fill="currentColor" />
-              <rect x="4" y="56" width="20" height="20" stroke="currentColor" stroke-width="2.5" />
-              <rect x="10" y="62" width="8" height="8" fill="currentColor" />
-              <rect x="32" y="6" width="4" height="4" fill="currentColor" />
-              <rect x="40" y="6" width="4" height="4" fill="currentColor" />
-              <rect x="48" y="6" width="4" height="4" fill="currentColor" />
-              <rect x="32" y="16" width="4" height="4" fill="currentColor" />
-              <rect x="44" y="16" width="4" height="4" fill="currentColor" />
-              <rect x="6" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="14" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="22" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="32" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="40" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="48" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="56" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="68" y="32" width="4" height="4" fill="currentColor" />
-              <rect x="34" y="40" width="4" height="4" fill="currentColor" />
-              <rect x="44" y="40" width="4" height="4" fill="currentColor" />
-              <rect x="54" y="40" width="4" height="4" fill="currentColor" />
-              <rect x="64" y="40" width="4" height="4" fill="currentColor" />
-              <rect x="32" y="48" width="4" height="4" fill="currentColor" />
-              <rect x="42" y="48" width="4" height="4" fill="currentColor" />
-              <rect x="52" y="48" width="4" height="4" fill="currentColor" />
-              <rect x="62" y="48" width="4" height="4" fill="currentColor" />
-              <rect x="70" y="48" width="4" height="4" fill="currentColor" />
-              <rect x="32" y="56" width="4" height="4" fill="currentColor" />
-              <rect x="40" y="56" width="4" height="4" fill="currentColor" />
-              <rect x="52" y="56" width="4" height="4" fill="currentColor" />
-              <rect x="62" y="56" width="4" height="4" fill="currentColor" />
-              <rect x="32" y="64" width="4" height="4" fill="currentColor" />
-              <rect x="46" y="64" width="4" height="4" fill="currentColor" />
-              <rect x="56" y="64" width="4" height="4" fill="currentColor" />
-              <rect x="68" y="64" width="4" height="4" fill="currentColor" />
-              <rect x="40" y="70" width="4" height="4" fill="currentColor" />
-              <rect x="52" y="70" width="4" height="4" fill="currentColor" />
-              <rect x="60" y="70" width="4" height="4" fill="currentColor" />
-            </svg>
+            <img
+              class="qr-img"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwww.rustore.ru%2Fcatalog%2Fapp%2Fcom.owevyat.habitwood&format=svg&color=0A0A0A&bgcolor=F2F2F2&qzone=2&margin=0"
+              alt="QR-код для скачивания приложения в RuStore"
+              width="200"
+              height="200"
+              loading="lazy"
+            />
           </div>
           <p class="qr-label">Наведите камеру телефона</p>
         </div>
       </div>
-
-      <footer class="footer">
-        <p>
-          &copy; 2026 Дерево привычек.
-          <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
-          <span class="dot">·</span>
-          <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
-        </p>
-        <p class="footer-mail">
-          <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
-        </p>
-      </footer>
     </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">Дерево привычек</a>
+          <span class="footer-tagline">Визуальный трекер привычек</span>
+        </div>
+
+        <nav class="footer-nav" aria-label="Правовая информация">
+          <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
+          <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
+          <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
+        </nav>
+
+        <p class="footer-copy">© 2026 Дерево привычек. Все права защищены.</p>
+      </div>
+    </footer>
   </main>
 
   <script>
@@ -395,7 +375,7 @@ import Layout from '../layouts/Layout.astro';
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
 
-    // Блик за курсором на карточках
+    // Блик за курсором
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -410,7 +390,7 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    // Параллакс дерева на десктопе
+    // Параллакс дерева
     const treeFrame = document.getElementById('tree-frame');
     const treeStage = document.getElementById('tree-stage');
 
@@ -468,7 +448,7 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .hero-content {
@@ -537,12 +517,12 @@ import Layout from '../layouts/Layout.astro';
       width: 100%;
     }
 
-    /* Дерево */
+    /* Дерево – поднято на мобилке на 33px */
     .hero-visual {
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 0;
+      margin-top: -33px;
     }
 
     .tree-stage {
@@ -653,22 +633,10 @@ import Layout from '../layouts/Layout.astro';
       will-change: transform, opacity;
     }
 
-    .particle-1 {
-      width: 5px; height: 5px; top: 22%; left: 16%;
-      animation: float-1 9s ease-in-out infinite; opacity: 0.5;
-    }
-    .particle-2 {
-      width: 3px; height: 3px; top: 58%; right: 14%;
-      animation: float-2 12s ease-in-out infinite reverse; opacity: 0.35;
-    }
-    .particle-3 {
-      width: 4px; height: 4px; bottom: 18%; left: 24%;
-      animation: float-3 10s ease-in-out infinite 1s; opacity: 0.25;
-    }
-    .particle-4 {
-      width: 3px; height: 3px; top: 40%; right: 20%;
-      animation: float-1 14s ease-in-out infinite 2s; opacity: 0.3;
-    }
+    .particle-1 { width: 5px; height: 5px; top: 22%; left: 16%; animation: float-1 9s ease-in-out infinite; opacity: 0.5; }
+    .particle-2 { width: 3px; height: 3px; top: 58%; right: 14%; animation: float-2 12s ease-in-out infinite reverse; opacity: 0.35; }
+    .particle-3 { width: 4px; height: 4px; bottom: 18%; left: 24%; animation: float-3 10s ease-in-out infinite 1s; opacity: 0.25; }
+    .particle-4 { width: 3px; height: 3px; top: 40%; right: 20%; animation: float-1 14s ease-in-out infinite 2s; opacity: 0.3; }
 
     @keyframes float-1 {
       0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.3; }
@@ -684,25 +652,27 @@ import Layout from '../layouts/Layout.astro';
     }
 
     /* ═══════════════════════════════════════
-       ТРИ КИТА
+       ТРИ ИНСТРУМЕНТА – новый премиальный дизайн
        ═══════════════════════════════════════ */
     .kits-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .kit-card {
       position: relative;
-      padding: 1.4rem 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
       border-radius: var(--radius);
       background:
-        linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.01) 100%),
         var(--surface);
       border: 1px solid var(--border);
       overflow: hidden;
       transition: border-color 0.3s var(--ease-out),
-        transform 0.3s var(--ease-out);
+        transform 0.3s var(--ease-out),
+        box-shadow 0.3s var(--ease-out);
       contain: layout style paint;
     }
 
@@ -713,12 +683,13 @@ import Layout from '../layouts/Layout.astro';
       border-radius: inherit;
       background: radial-gradient(
         400px circle at var(--mx, 50%) var(--my, 50%),
-        rgba(138, 230, 106, 0.14),
+        rgba(138, 230, 106, 0.12),
         transparent 45%
       );
       opacity: 0;
       transition: opacity 0.3s var(--ease-out);
       pointer-events: none;
+      z-index: 1;
     }
 
     .kit-card:hover::before {
@@ -727,50 +698,54 @@ import Layout from '../layouts/Layout.astro';
 
     .kit-card:hover {
       border-color: var(--border-strong);
-      transform: translate3d(0, -2px, 0);
+      transform: translate3d(0, -3px, 0);
+      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
     }
 
-    .kit-card::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 1.25rem;
-      right: 1.25rem;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
-      pointer-events: none;
-    }
-
-    /* Мини-мокапы */
-    .kit-visual {
+    /* Витрина с мокапом – главный визуальный якорь */
+    .kit-showcase {
+      position: relative;
+      aspect-ratio: 16 / 11;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
-      margin-bottom: 1.1rem;
-      padding: 0.75rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(138, 230, 106, 0.1) 0%, transparent 65%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
 
-    .kit-visual-tree svg {
-      width: 110px;
-      height: 110px;
+    .kit-showcase::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(138, 230, 106, 0.3), transparent);
+    }
+
+    .kit-showcase svg {
+      width: 90px;
+      height: 90px;
       display: block;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
     }
 
+    /* Мокап виджета */
     .widget-mock {
       width: 118px;
       height: 118px;
       padding: 12px;
-      border-radius: 18px;
-      background: linear-gradient(160deg, #1A1A1A 0%, #0F0F0F 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      background: linear-gradient(160deg, #1C1C1C 0%, #0D0D0D 100%);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .widget-mock-head {
@@ -807,13 +782,15 @@ import Layout from '../layouts/Layout.astro';
       letter-spacing: 0.03em;
     }
 
+    /* Мокап дневника */
     .diary-mock {
-      width: 160px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: linear-gradient(160deg, #151515 0%, #0B0B0B 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+      width: 170px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(160deg, #181818 0%, #0C0C0C 100%);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .diary-mock-head {
@@ -828,6 +805,7 @@ import Layout from '../layouts/Layout.astro';
       height: 8px;
       border-radius: 50%;
       display: inline-block;
+      box-shadow: 0 0 6px rgba(138, 230, 106, 0.4);
     }
 
     .diary-mock-date {
@@ -844,6 +822,12 @@ import Layout from '../layouts/Layout.astro';
       margin-bottom: 6px;
     }
 
+    .kit-body {
+      position: relative;
+      z-index: 2;
+      padding: 1.25rem 1.4rem 1.4rem;
+    }
+
     .kit-label {
       display: block;
       font-size: 0.65rem;
@@ -851,7 +835,7 @@ import Layout from '../layouts/Layout.astro';
       letter-spacing: 0.2em;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .kit-title {
@@ -873,7 +857,7 @@ import Layout from '../layouts/Layout.astro';
     .final-cta {
       position: relative;
       z-index: 1;
-      padding: 4rem 1.25rem 0;
+      padding: 4rem 1.25rem 4rem;
       text-align: center;
       background: radial-gradient(
         ellipse at 50% 60%,
@@ -890,7 +874,6 @@ import Layout from '../layouts/Layout.astro';
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-      padding-bottom: 3.5rem;
     }
 
     .trust-row {
@@ -902,6 +885,7 @@ import Layout from '../layouts/Layout.astro';
       font-weight: 600;
       color: var(--text-dim);
       letter-spacing: 0.02em;
+      flex-wrap: wrap;
     }
 
     .trust-dot {
@@ -922,22 +906,25 @@ import Layout from '../layouts/Layout.astro';
       flex-direction: column;
       align-items: center;
       gap: 0.6rem;
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
     }
 
     .qr-frame {
-      width: 120px;
-      height: 120px;
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.03);
+      width: 148px;
+      height: 148px;
+      padding: 8px;
+      border-radius: 18px;
+      background: #F2F2F2;
       border: 1px solid var(--border);
-      color: var(--text);
+      overflow: hidden;
+      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
     }
 
-    .qr-frame svg {
+    .qr-img {
       width: 100%;
       height: 100%;
+      display: block;
+      border-radius: 10px;
     }
 
     .qr-label {
@@ -946,38 +933,97 @@ import Layout from '../layouts/Layout.astro';
     }
 
     /* ═══════════════════════════════════════
-       FOOTER
+       FOOTER – премиальный
        ═══════════════════════════════════════ */
     .footer {
       position: relative;
       z-index: 1;
-      padding: 1.75rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
+      padding: 2.5rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      line-height: 1.7;
+      background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.01) 100%);
     }
 
-    .footer a {
-      color: var(--text-muted);
-      text-decoration: underline;
-      text-decoration-color: rgba(255, 255, 255, 0.14);
-      text-underline-offset: 3px;
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text);
       transition: color 0.2s var(--ease-out);
     }
 
-    .footer a:hover {
+    .footer-logo:hover {
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .footer-nav a {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.2s var(--ease-out);
+      position: relative;
+    }
+
+    .footer-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.3s var(--ease-out);
+      opacity: 0.6;
+    }
+
+    .footer-nav a:hover {
       color: var(--text);
     }
 
-    .footer .dot {
-      margin: 0 0.4rem;
-      opacity: 0.4;
+    .footer-nav a:hover::after {
+      transform: scaleX(1);
     }
 
-    .footer-mail {
-      margin-top: 0.35rem;
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.03em;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      max-width: 320px;
     }
 
     /* ═══════════════════════════════════════
@@ -999,6 +1045,13 @@ import Layout from '../layouts/Layout.astro';
       }
       .tree-frame {
         width: min(60vw, 380px);
+      }
+      .hero-visual {
+        margin-top: -20px;
+      }
+      .footer-nav {
+        flex-direction: row;
+        gap: 1.5rem;
       }
     }
 
@@ -1037,9 +1090,11 @@ import Layout from '../layouts/Layout.astro';
         justify-content: flex-start;
       }
 
+      /* Симметрия дерева относительно текста */
       .hero-visual {
         flex: 1;
         justify-content: flex-end;
+        margin-top: -30px;
       }
 
       .tree-frame {
@@ -1066,7 +1121,29 @@ import Layout from '../layouts/Layout.astro';
       }
 
       .kits-grid {
-        gap: 1.1rem;
+        gap: 1.25rem;
+      }
+
+      .kit-showcase {
+        aspect-ratio: 16 / 10;
+      }
+
+      .kit-showcase svg {
+        width: 110px;
+        height: 110px;
+      }
+
+      .widget-mock {
+        width: 128px;
+        height: 128px;
+      }
+
+      .widget-mock-num {
+        font-size: 2.25rem;
+      }
+
+      .diary-mock {
+        width: 185px;
       }
 
       .section {
@@ -1075,6 +1152,31 @@ import Layout from '../layouts/Layout.astro';
 
       .final-cta {
         padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+
+      .footer {
+        padding: 3rem 2rem;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-brand {
+        align-items: flex-start;
+      }
+
+      .footer-copy {
+        padding-top: 0;
+        border-top: none;
+        max-width: none;
+        width: auto;
       }
     }
 
