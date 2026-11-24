@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles', ({ data }) => {
@@ -17,7 +18,6 @@ const formatDate = (d: Date) =>
   d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const readingTime = (description: string) => {
-  // Примерная оценка: 150 слов/мин, + описание
   const approxWords = description.split(' ').length + 300;
   return Math.max(2, Math.round(approxWords / 150));
 };
@@ -28,7 +28,6 @@ const readingTime = (description: string) => {
   <div class="bg-grid" aria-hidden="true"></div>
 
   <main class="articles-page">
-    <!-- HERO -->
     <section class="articles-hero">
       <div class="articles-hero-glow" aria-hidden="true"></div>
       <span class="articles-eyebrow">Блог</span>
@@ -106,6 +105,8 @@ const readingTime = (description: string) => {
     </a>
   </main>
 
+  <Footer />
+
   <script>
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -140,6 +141,7 @@ const readingTime = (description: string) => {
   </script>
 
   <style is:global>
+    /* ═══ Стили статей — как раньше ═══ */
     .articles-page {
       max-width: 960px;
       margin: 0 auto;
@@ -148,7 +150,6 @@ const readingTime = (description: string) => {
       z-index: 1;
     }
 
-    /* ═══ HERO ═══ */
     .articles-hero {
       position: relative;
       text-align: center;
@@ -199,7 +200,6 @@ const readingTime = (description: string) => {
       line-height: 1.6;
     }
 
-    /* ═══ META (общая) ═══ */
     .article-meta {
       display: flex;
       align-items: center;
@@ -211,24 +211,10 @@ const readingTime = (description: string) => {
       margin-bottom: 1rem;
     }
 
-    .article-category {
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
+    .article-category { color: var(--accent); font-weight: 700; letter-spacing: 0.02em; }
+    .article-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-dim); opacity: 0.6; }
 
-    .article-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--text-dim);
-      opacity: 0.6;
-    }
-
-    /* ═══ FEATURED ═══ */
-    .featured-section {
-      margin-bottom: 3.5rem;
-    }
+    .featured-section { margin-bottom: 3.5rem; }
 
     .featured-card {
       position: relative;
@@ -259,10 +245,7 @@ const readingTime = (description: string) => {
       pointer-events: none;
     }
 
-    .featured-card:hover::before {
-      opacity: 1;
-    }
-
+    .featured-card:hover::before { opacity: 1; }
     .featured-card:hover {
       border-color: var(--accent);
       transform: translateY(-3px);
@@ -282,10 +265,7 @@ const readingTime = (description: string) => {
       margin-bottom: 1.25rem;
     }
 
-    .featured-body {
-      position: relative;
-      z-index: 1;
-    }
+    .featured-body { position: relative; z-index: 1; }
 
     .featured-title {
       font-size: clamp(1.5rem, 5vw, 2.2rem);
@@ -319,11 +299,8 @@ const readingTime = (description: string) => {
       transition: transform 0.25s var(--ease-out);
     }
 
-    .featured-card:hover .featured-cta svg {
-      transform: translateX(4px);
-    }
+    .featured-card:hover .featured-cta svg { transform: translateX(4px); }
 
-    /* ═══ LIST ═══ */
     .list-label {
       font-size: 0.7rem;
       font-weight: 800;
@@ -367,10 +344,7 @@ const readingTime = (description: string) => {
       pointer-events: none;
     }
 
-    .article-card:hover::before {
-      opacity: 1;
-    }
-
+    .article-card:hover::before { opacity: 1; }
     .article-card:hover {
       border-color: var(--border-strong);
       transform: translateY(-3px);
@@ -413,11 +387,8 @@ const readingTime = (description: string) => {
       transition: transform 0.25s var(--ease-out);
     }
 
-    .article-card:hover .article-card-footer svg {
-      transform: translateX(4px);
-    }
+    .article-card:hover .article-card-footer svg { transform: translateX(4px); }
 
-    /* ═══ EMPTY / BACK ═══ */
     .empty-state {
       text-align: center;
       color: var(--text-muted);
@@ -442,40 +413,18 @@ const readingTime = (description: string) => {
       transition: transform 0.25s var(--ease-out);
     }
 
-    .back-home:hover {
-      color: var(--text);
-    }
+    .back-home:hover { color: var(--text); }
+    .back-home:hover svg { transform: translateX(-4px); }
 
-    .back-home:hover svg {
-      transform: translateX(-4px);
-    }
-
-    /* ═══ ДЕСКТОП ═══ */
     @media (min-width: 720px) {
-      .articles-page {
-        padding: 4rem 2rem 6rem;
-      }
-
-      .articles-hero {
-        padding: 3rem 0 4.5rem;
-      }
-
-      .featured-card {
-        padding: 3rem 2.5rem;
-      }
-
-      .articles-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-      }
+      .articles-page { padding: 4rem 2rem 6rem; }
+      .articles-hero { padding: 3rem 0 4.5rem; }
+      .featured-card { padding: 3rem 2.5rem; }
+      .articles-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </Layout>

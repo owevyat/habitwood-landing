@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Дерево привычек – Визуальный трекер привычек">
@@ -188,24 +189,9 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="/habitwood-landing/" class="footer-logo">Дерево привычек</a>
-        <span class="footer-tagline">Визуальный трекер привычек</span>
-      </div>
-      <nav class="footer-nav" aria-label="Навигация и правовая информация">
-        <a href="/habitwood-landing/articles/">Статьи о привычках</a>
-        <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
-        <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
-        <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
-      </nav>
-      <p class="footer-copy">© 2026 Дерево привычек. Все права защищены.</p>
-    </div>
-  </footer>
   </main>
+
+  <Footer />
 
   <script>
     const stickyCta = document.getElementById('sticky-cta');
@@ -346,26 +332,12 @@ import Layout from '../layouts/Layout.astro';
     .qr-img { width: 100%; height: 100%; display: block; border-radius: 10px; }
     .qr-label { font-size: 0.78rem; color: var(--text-muted); text-align: center; }
 
-    .footer { position: relative; z-index: 1; padding: 2.5rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom)); border-top: 1px solid var(--border); background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.01) 100%); }
-    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; align-items: center; text-align: center; }
-    .footer-brand { display: flex; flex-direction: column; gap: 0.35rem; align-items: center; }
-    .footer-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); transition: color 0.2s var(--ease-out); }
-    .footer-logo:hover { color: var(--accent); }
-    .footer-tagline { font-size: 0.78rem; color: var(--text-dim); font-weight: 500; letter-spacing: 0.02em; }
-    .footer-nav { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-    .footer-nav a { font-size: 0.84rem; color: var(--text-muted); font-weight: 500; transition: color 0.2s var(--ease-out); position: relative; }
-    .footer-nav a::after { content: ""; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left center; transition: transform 0.3s var(--ease-out); opacity: 0.6; }
-    .footer-nav a:hover { color: var(--text); }
-    .footer-nav a:hover::after { transform: scaleX(1); }
-    .footer-copy { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.03em; padding-top: 1rem; border-top: 1px solid var(--border); width: 100%; max-width: 320px; }
-
     @media (min-width: 640px) {
       .kits-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
       .hero-cta { flex-direction: row; max-width: none; width: auto; }
       .hero-cta .btn { width: auto; padding: 0 2rem; }
       .tree-frame { width: min(60vw, 380px); }
       .hero-visual { margin-top: -100px; }
-      .footer-nav { flex-direction: row; gap: 1.5rem; }
     }
 
     @media (min-width: 900px) {
@@ -387,10 +359,6 @@ import Layout from '../layouts/Layout.astro';
       .widget-mock-num { font-size: 38px; }
       .section { padding: 5rem 2rem; }
       .final-cta { padding-top: 5rem; padding-bottom: 5rem; }
-      .footer { padding: 3rem 2rem; }
-      .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; gap: 2rem; flex-wrap: wrap; }
-      .footer-brand { align-items: flex-start; }
-      .footer-copy { padding-top: 0; border-top: none; max-width: none; width: auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
