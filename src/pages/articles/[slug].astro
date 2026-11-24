@@ -4,33 +4,46 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
-  return articles.map((article) => ({
+  const sorted = articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return sorted.map((article, i) => ({
     params: { slug: article.id },
-    props: { article },
+    props: {
+      article,
+      prev: sorted[i + 1] ?? null,
+      next: sorted[i - 1] ?? null,
+    },
   }));
 }
 
-const { article } = Astro.props;
+const { article, prev, next } = Astro.props;
 const { Content } = await render(article);
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <Layout title={`${article.data.title} – Дерево привычек`}>
   <div class="bg-noise" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
   <main class="article-page">
     <nav class="breadcrumbs">
       <a href="/habitwood-landing/articles/">Статьи</a>
       <span class="breadcrumb-sep">/</span>
-      <span class="breadcrumb-current">{article.data.title}</span>
+      <span class="breadcrumb-current">{article.data.category}</span>
     </nav>
 
     <article class="article-content">
       <header class="article-header">
-        <h1 class="article-page-title">{article.data.title}</h1>
-        <time datetime={article.data.pubDate.toISOString()} class="article-page-date">
-          {article.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
-        </time>
+        <div class="article-meta">
+          <span class="article-category">{article.data.category}</span>
+          <span class="article-dot"></span>
+          <time datetime={article.data.pubDate.toISOString()}>{formatDate(article.data.pubDate)}</time>
+        </div>
+        <h1 class="article-title">{article.data.title}</h1>
+        <p class="article-description">{article.data.description}</p>
       </header>
 
       <div class="prose">
@@ -39,130 +52,345 @@ const { Content } = await render(article);
     </article>
 
     <div class="article-cta">
-      <h2>Понравилась статья?</h2>
-      <p>Скачайте «Дерево привычек» и начните применять советы на практике.</p>
-      <a href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood" class="btn btn-primary" target="_blank" rel="noopener">
-        Скачать в RuStore
-      </a>
+      <div class="article-cta-inner">
+        <h2>Понравилась статья?</h2>
+        <p>Скачайте «Дерево привычек» и начните применять советы на практике.</p>
+        <a href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood" class="btn btn-primary" target="_blank" rel="noopener">
+          Скачать в RuStore
+        </a>
+      </div>
     </div>
+
+    {(prev || next) && (
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        {prev ? (
+          <a href={`/habitwood-landing/articles/${prev.id}/`} class="nav-card nav-prev">
+            <span class="nav-label">← Предыдущая</span>
+            <span class="nav-title">{prev.data.title}</span>
+          </a>
+        ) : (
+          <div></div>
+        )}
+        {next ? (
+          <a href={`/habitwood-landing/articles/${next.id}/`} class="nav-card nav-next">
+            <span class="nav-label">Следующая →</span>
+            <span class="nav-title">{next.data.title}</span>
+          </a>
+        ) : (
+          <div></div>
+        )}
+      </nav>
+    )}
+
+    <a href="/habitwood-landing/articles/" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 8H3M7 4l-4 4 4 4" />
+      </svg>
+      Все статьи
+    </a>
   </main>
+
+  <script>
+    // Прогресс чтения
+    const progress = document.getElementById('reading-progress');
+    const article = document.querySelector('.article-page');
+
+    if (progress && article) {
+      const updateProgress = () => {
+        const rect = article.getBoundingClientRect();
+        const total = article.offsetHeight - window.innerHeight;
+        const scrolled = Math.max(0, -rect.top);
+        const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+        progress.style.width = `${pct}%`;
+      };
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      updateProgress();
+    }
+  </script>
+
+  <style is:global>
+    /* ═══ ПРОГРЕСС ЧТЕНИЯ ═══ */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #5ABA48);
+      z-index: 1000;
+      box-shadow: 0 0 12px rgba(138, 230, 106, 0.5);
+      transition: width 0.1s linear;
+    }
+
+    .article-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumbs {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--text);
+    }
+
+    .breadcrumb-sep {
+      margin: 0 0.5rem;
+      opacity: 0.4;
+    }
+
+    .breadcrumb-current {
+      color: var(--text-dim);
+    }
+
+    /* ═══ META ═══ */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .article-category {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .article-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      opacity: 0.6;
+    }
+
+    /* ═══ ЗАГОЛОВОК ═══ */
+    .article-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-title {
+      font-size: clamp(1.9rem, 6vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .article-description {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ═══ PROSE ═══ */
+    .prose {
+      color: #C8C8C8;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .prose h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+
+    .prose h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .prose p {
+      margin-bottom: 1.35rem;
+    }
+
+    .prose ul, .prose ol {
+      margin-bottom: 1.35rem;
+      padding-left: 1.5rem;
+    }
+
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+
+    .prose li::marker {
+      color: var(--accent);
+    }
+
+    .prose a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s;
+    }
+
+    .prose a:hover {
+      opacity: 0.8;
+    }
+
+    .prose strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .prose blockquote {
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(138, 230, 106, 0.04);
+      border-radius: 0 12px 12px 0;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .prose code {
+      background: var(--surface);
+      padding: 0.15rem 0.4rem;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: var(--accent);
+    }
+
+    /* ═══ CTA ═══ */
+    .article-cta {
+      margin-top: 4rem;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(138, 230, 106, 0.15) 0%, transparent 60%),
+        var(--surface);
+      border: 1px solid var(--border-strong);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .article-cta-inner {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .article-cta h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .article-cta p {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.55;
+    }
+
+    /* ═══ НАВИГАЦИЯ ═══ */
+    .article-nav {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .nav-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    .nav-next {
+      text-align: right;
+    }
+
+    .nav-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ═══ BACK ═══ */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* ═══ ДЕСКТОП ═══ */
+    @media (min-width: 640px) {
+      .article-page {
+        padding: 4rem 2rem 6rem;
+      }
+
+      .article-nav {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </Layout>
-
-<style is:global>
-  .article-page {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 4rem 1.25rem;
-  }
-
-  .breadcrumbs {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
-
-  .breadcrumbs a {
-    color: var(--text-muted);
-    transition: color 0.2s;
-  }
-
-  .breadcrumbs a:hover {
-    color: var(--text);
-  }
-
-  .breadcrumb-sep {
-    margin: 0 0.5rem;
-    opacity: 0.4;
-  }
-
-  .breadcrumb-current {
-    color: var(--text-dim);
-  }
-
-  .article-header {
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .article-page-title {
-    font-size: clamp(2rem, 6vw, 2.8rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
-
-  .article-page-date {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-
-  .prose {
-    color: var(--text-muted);
-    line-height: 1.75;
-    font-size: 1.05rem;
-  }
-
-  .prose h2 {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .prose h3 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .prose p {
-    margin-bottom: 1.25rem;
-  }
-
-  .prose ul, .prose ol {
-    margin-bottom: 1.25rem;
-    padding-left: 1.5rem;
-  }
-
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-
-  .prose a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .prose strong {
-    color: var(--text);
-    font-weight: 700;
-  }
-
-  .article-cta {
-    margin-top: 3rem;
-    padding: 2rem;
-    text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-  }
-
-  .article-cta h2 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .article-cta p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
-</style>

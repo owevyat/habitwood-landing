@@ -9,6 +9,18 @@ const allArticles = await getCollection('articles', ({ data }) => {
 const sortedArticles = allArticles.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const featured = sortedArticles[0];
+const rest = sortedArticles.slice(1);
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const readingTime = (description: string) => {
+  // Примерная оценка: 150 слов/мин, + описание
+  const approxWords = description.split(' ').length + 300;
+  return Math.max(2, Math.round(approxWords / 150));
+};
 ---
 
 <Layout title="Статьи о привычках – Дерево привычек">
@@ -16,100 +28,454 @@ const sortedArticles = allArticles.sort(
   <div class="bg-grid" aria-hidden="true"></div>
 
   <main class="articles-page">
-    <header class="articles-header">
-      <span class="hero-eyebrow">Блог</span>
-      <h1 class="hero-title">Статьи о <span class="accent">привычках</span></h1>
-      <p class="hero-subtitle">
+    <!-- HERO -->
+    <section class="articles-hero">
+      <div class="articles-hero-glow" aria-hidden="true"></div>
+      <span class="articles-eyebrow">Блог</span>
+      <h1 class="articles-title">
+        Статьи о <span class="accent">привычках</span>
+      </h1>
+      <p class="articles-subtitle">
         Разбираемся, как работают привычки, почему мы бросаем на второй день и как это исправить.
       </p>
-    </header>
+    </section>
 
-    <div class="articles-grid">
-      {sortedArticles.map((article) => (
-        <a href={`/habitwood-landing/articles/${article.id}/`} class="article-card">
-          <h2 class="article-title">{article.data.title}</h2>
-          <p class="article-description">{article.data.description}</p>
-          <time datetime={article.data.pubDate.toISOString()} class="article-date">
-            {article.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </time>
+    {featured && (
+      <section class="featured-section reveal">
+        <a href={`/habitwood-landing/articles/${featured.id}/`} class="featured-card" data-glow>
+          <div class="featured-badge">Свежее</div>
+          <div class="featured-body">
+            <div class="article-meta">
+              <span class="article-category">{featured.data.category}</span>
+              <span class="article-dot"></span>
+              <time datetime={featured.data.pubDate.toISOString()}>{formatDate(featured.data.pubDate)}</time>
+              <span class="article-dot"></span>
+              <span>{readingTime(featured.data.description)} мин чтения</span>
+            </div>
+            <h2 class="featured-title">{featured.data.title}</h2>
+            <p class="featured-description">{featured.data.description}</p>
+            <span class="featured-cta">
+              Читать статью
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </span>
+          </div>
         </a>
-      ))}
-    </div>
+      </section>
+    )}
+
+    {rest.length > 0 && (
+      <section class="articles-list">
+        <h2 class="list-label">Все статьи</h2>
+        <div class="articles-grid">
+          {rest.map((article, i) => (
+            <a
+              href={`/habitwood-landing/articles/${article.id}/`}
+              class={`article-card reveal reveal-d${(i % 3) + 1}`}
+              data-glow
+            >
+              <div class="article-meta">
+                <span class="article-category">{article.data.category}</span>
+                <span class="article-dot"></span>
+                <time datetime={article.data.pubDate.toISOString()}>{formatDate(article.data.pubDate)}</time>
+              </div>
+              <h3 class="article-card-title">{article.data.title}</h3>
+              <p class="article-card-description">{article.data.description}</p>
+              <span class="article-card-footer">
+                <span>{readingTime(article.data.description)} мин чтения</span>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     {sortedArticles.length === 0 && (
       <p class="empty-state">Статьи скоро появятся. Следите за обновлениями!</p>
     )}
 
-    <a href="/habitwood-landing/" class="back-home">← На главную</a>
+    <a href="/habitwood-landing/" class="back-home">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 8H3M7 4l-4 4 4 4" />
+      </svg>
+      На главную
+    </a>
   </main>
+
+  <script>
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (hasFinePointer && !reduceMotion) {
+      document.querySelectorAll('[data-glow]').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        }, { passive: true });
+      });
+    }
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+
+  <style is:global>
+    .articles-page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══ HERO ═══ */
+    .articles-hero {
+      position: relative;
+      text-align: center;
+      padding: 2rem 0 3.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .articles-hero-glow {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 400px;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(138, 230, 106, 0.18) 0%,
+        rgba(138, 230, 106, 0.05) 40%,
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .articles-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .articles-title {
+      font-size: clamp(2.2rem, 8vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .articles-subtitle {
+      font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ═══ META (общая) ═══ */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .article-category {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .article-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      opacity: 0.6;
+    }
+
+    /* ═══ FEATURED ═══ */
+    .featured-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .featured-card {
+      position: relative;
+      display: block;
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(138, 230, 106, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.01) 100%),
+        var(--surface);
+      border: 1px solid var(--border-strong);
+      overflow: hidden;
+      transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+    }
+
+    .featured-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        500px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(138, 230, 106, 0.15),
+        transparent 45%
+      );
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-out);
+      pointer-events: none;
+    }
+
+    .featured-card:hover::before {
+      opacity: 1;
+    }
+
+    .featured-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px -24px rgba(138, 230, 106, 0.3);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-dark);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .featured-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-title {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+    }
+
+    .featured-description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 600px;
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .featured-cta svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .featured-card:hover .featured-cta svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══ LIST ═══ */
+    .list-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      padding-left: 0.25rem;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+
+    .article-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1.75rem;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        400px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(138, 230, 106, 0.1),
+        transparent 45%
+      );
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-out);
+      pointer-events: none;
+    }
+
+    .article-card:hover::before {
+      opacity: 1;
+    }
+
+    .article-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8);
+    }
+
+    .article-card-title {
+      position: relative;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .article-card-description {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .article-card-footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .article-card-footer svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .article-card:hover .article-card-footer svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══ EMPTY / BACK ═══ */
+    .empty-state {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 4rem 0;
+      font-size: 1rem;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: color 0.2s, gap 0.25s var(--ease-out);
+    }
+
+    .back-home svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .back-home:hover {
+      color: var(--text);
+    }
+
+    .back-home:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* ═══ ДЕСКТОП ═══ */
+    @media (min-width: 720px) {
+      .articles-page {
+        padding: 4rem 2rem 6rem;
+      }
+
+      .articles-hero {
+        padding: 3rem 0 4.5rem;
+      }
+
+      .featured-card {
+        padding: 3rem 2.5rem;
+      }
+
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
 </Layout>
-
-<style is:global>
-  .articles-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 4rem 1.25rem;
-  }
-
-  .articles-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .articles-grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .article-card {
-    display: block;
-    padding: 1.75rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-  }
-
-  .article-card:hover {
-    border-color: var(--border-strong);
-    transform: translateY(-3px);
-  }
-
-  .article-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-
-  .article-description {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .article-date {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    font-weight: 600;
-  }
-
-  .empty-state {
-    text-align: center;
-    color: var(--text-muted);
-    padding: 3rem 0;
-  }
-
-  .back-home {
-    display: inline-block;
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-
-  .back-home:hover {
-    color: var(--text);
-  }
-</style>
