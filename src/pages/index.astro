@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Дерево привычек — Трекер, дневник и виджет">
+<Layout title="Дерево привычек — Визуальный трекер привычек">
   <div class="bg-noise" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
   <main>
     <!-- ═══════════════════════════════════════
-         HERO
+         СЕКЦИЯ 1 — HERO
          ═══════════════════════════════════════ -->
     <section class="hero">
       <div class="hero-inner">
@@ -27,8 +27,8 @@ import Layout from '../layouts/Layout.astro';
           </h1>
 
           <p class="hero-subtitle">
-            Дневник, стрики и виджет на рабочем столе. Визуальная мотивация,
-            которая работает лучше сухих графиков.
+            Визуальный трекер привычек, который превращает рутину в игру.
+            Дерево, дневник и виджет — всё в одном приложении.
           </p>
 
           <div class="hero-cta">
@@ -40,7 +40,6 @@ import Layout from '../layouts/Layout.astro';
             >
               Скачать в RuStore
             </a>
-            <a href="#features" class="btn btn-secondary">Возможности</a>
           </div>
         </div>
 
@@ -176,107 +175,99 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══════════════════════════════════════
-         FEATURES
+         СЕКЦИЯ 2 — ТРИ КИТА
          ═══════════════════════════════════════ -->
-    <section id="features" class="section reveal">
+    <section id="kits" class="section reveal">
       <header class="section-header">
-        <span class="eyebrow">Возможности</span>
+        <span class="eyebrow">Три кита</span>
         <h2 class="section-title">
-          Всё, чтобы <span class="accent">не бросить</span> на второй день
+          Три инструмента, которые <span class="accent">меняют привычки</span>
         </h2>
         <p class="section-subtitle">
-          Мы убрали всё лишнее. Осталось только то, что действительно помогает.
+          Не просто галочки. Три механики, которые работают вместе — или по отдельности.
         </p>
       </header>
 
-      <div class="bento-grid">
-        <article class="bento-card bento-large reveal reveal-d1" data-glow>
-          <div class="bento-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 28 V17" />
-              <circle cx="16" cy="11" r="5" />
-              <circle cx="10" cy="14" r="3.5" />
-              <circle cx="22" cy="14" r="3.5" />
+      <div class="kits-grid">
+        <!-- КИТ 1 — Дерево -->
+        <article class="kit-card reveal reveal-d1" data-glow>
+          <div class="kit-visual kit-visual-tree" aria-hidden="true">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="108" rx="26" ry="3" fill="#2A1A10" opacity="0.5" />
+              <path d="M60 108 C59 100 60 92 60 84" stroke="#8A6538" stroke-width="3" stroke-linecap="round" fill="none" />
+              <path d="M60 84 C59 82 60 80 60 78" stroke="#8A6538" stroke-width="2.4" stroke-linecap="round" fill="none" />
+              <ellipse cx="52" cy="74" rx="14" ry="12" fill="#3E7B3E" />
+              <ellipse cx="68" cy="74" rx="14" ry="12" fill="#3E7B3E" />
+              <ellipse cx="60" cy="66" rx="14" ry="11" fill="#3E7B3E" />
+              <ellipse cx="48" cy="66" rx="11" ry="9" fill="#5ABA48" />
+              <ellipse cx="70" cy="66" rx="11" ry="9" fill="#5ABA48" />
+              <ellipse cx="60" cy="60" rx="12" ry="9" fill="#5ABA48" />
+              <ellipse cx="58" cy="58" rx="7" ry="5" fill="#8AE66A" />
+              <ellipse cx="66" cy="64" rx="6" ry="4" fill="#8AE66A" />
+              <circle cx="58" cy="54" r="1.5" fill="#C8FA9A" />
+              <circle cx="66" cy="60" r="1.5" fill="#C8FA9A" />
+              <circle cx="62" cy="70" r="1.2" fill="#C8FA9A" />
             </svg>
           </div>
-          <h3 class="bento-title">Визуальная мотивация</h3>
-          <p class="bento-text">
-            Каждая выполненная привычка питает дерево. Смотрите, как оно растёт
-            из семечка до цветущего сада. Это не просто галочки — это живой
-            организм, который реагирует на вашу дисциплину.
-          </p>
-          <div class="bento-metric">
-            <span class="bento-metric-num">21</span>
-            <span class="bento-metric-label">день до первого цветения</span>
-          </div>
-        </article>
 
-        <article class="bento-card reveal reveal-d2" data-glow>
-          <div class="bento-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="6" width="8" height="8" rx="2" />
-              <rect x="18" y="6" width="8" height="8" rx="2" />
-              <rect x="6" y="18" width="8" height="8" rx="2" />
-              <path d="M18 22 h8 M18 26 h5" />
-            </svg>
-          </div>
-          <h3 class="bento-title">Виджет и стрики</h3>
-          <p class="bento-text">
-            Держите прогресс на рабочем столе. Отслеживайте серии дней и не
-            теряйте мотивацию, даже когда приложение закрыто.
+          <span class="kit-label">01 — Мотивация</span>
+          <h3 class="kit-title">Дерево</h3>
+          <p class="kit-text">
+            Каждая выполненная привычка питает дерево. Вы видите физический
+            результат дисциплины — от ростка до цветущего сада.
           </p>
         </article>
 
-        <article class="bento-card reveal reveal-d3" data-glow>
-          <div class="bento-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 6 h14 a2 2 0 0 1 2 2 v18 h-14 a2 2 0 0 1 -2 -2 v-16 a2 2 0 0 1 2 -2 z" />
-              <path d="M8 22 h16" />
-              <path d="M12 11 h6 M12 15 h6" />
-            </svg>
+        <!-- КИТ 2 — Виджет -->
+        <article class="kit-card reveal reveal-d2" data-glow>
+          <div class="kit-visual" aria-hidden="true">
+            <div class="widget-mock">
+              <div class="widget-mock-head">
+                <span class="widget-mock-label">Стрик</span>
+                <svg class="widget-mock-flame" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 2 C6 5 4 7 4 10 a4 4 0 0 0 8 0 C12 7 10 5 8 2 Z" stroke="#FF8C42" stroke-width="1.5" stroke-linejoin="round" />
+                  <path d="M8 7 C7 8.5 6.5 9.5 6.5 10.5 a1.5 1.5 0 0 0 3 0 C9.5 9.5 9 8.5 8 7 Z" fill="#FF8C42" />
+                </svg>
+              </div>
+              <div class="widget-mock-num">12</div>
+              <div class="widget-mock-foot">48 выполнено</div>
+            </div>
           </div>
-          <h3 class="bento-title">Дневник настроения</h3>
-          <p class="bento-text">
-            Записывайте мысли и эмоции. Понимайте, что влияет на вашу
-            продуктивность. Приватно и локально.
+
+          <span class="kit-label">02 — Прогресс</span>
+          <h3 class="kit-title">Виджет</h3>
+          <p class="kit-text">
+            Стрик и количество выполненных привычек — прямо на рабочем столе.
+            Не нужно открывать приложение, чтобы увидеть прогресс.
+          </p>
+        </article>
+
+        <!-- КИТ 3 — Дневник -->
+        <article class="kit-card reveal reveal-d3" data-glow>
+          <div class="kit-visual" aria-hidden="true">
+            <div class="diary-mock">
+              <div class="diary-mock-head">
+                <span class="diary-mock-dot" style="background:#8AE66A"></span>
+                <span class="diary-mock-date">24 ноя</span>
+              </div>
+              <div class="diary-mock-line" style="width:88%"></div>
+              <div class="diary-mock-line" style="width:70%"></div>
+              <div class="diary-mock-line" style="width:52%"></div>
+            </div>
+          </div>
+
+          <span class="kit-label">03 — Рефлексия</span>
+          <h3 class="kit-title">Дневник</h3>
+          <p class="kit-text">
+            Записывайте мысли, отслеживайте настроение, понимайте триггеры.
+            Всё хранится локально и приватно.
           </p>
         </article>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         HOW IT WORKS
-         ═══════════════════════════════════════ -->
-    <section class="section reveal">
-      <header class="section-header">
-        <span class="eyebrow">Как это работает</span>
-        <h2 class="section-title">
-          Три шага до <span class="accent">первой привычки</span>
-        </h2>
-        <p class="section-subtitle">Никаких сложных настроек. Начните прямо сейчас.</p>
-      </header>
-
-      <ol class="steps-grid">
-        <li class="step-card reveal reveal-d1" data-glow>
-          <span class="step-num" aria-hidden="true">01</span>
-          <h3 class="step-title">Посадите семечко</h3>
-          <p class="step-text">Создайте первую привычку: читать, пить воду или делать зарядку.</p>
-        </li>
-        <li class="step-card reveal reveal-d2" data-glow>
-          <span class="step-num" aria-hidden="true">02</span>
-          <h3 class="step-title">Питайте дерево</h3>
-          <p class="step-text">Отмечайте выполнение каждый день. Смотрите, как растёт ваш сад.</p>
-        </li>
-        <li class="step-card reveal reveal-d3" data-glow>
-          <span class="step-num" aria-hidden="true">03</span>
-          <h3 class="step-title">Собирайте плоды</h3>
-          <p class="step-text">Достигайте целей и наблюдайте, как меняется ваша жизнь.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         FINAL CTA
+         СЕКЦИЯ 3 — ФИНАЛ
          ═══════════════════════════════════════ -->
     <section class="final-cta reveal">
       <div class="final-inner">
@@ -287,9 +278,17 @@ import Layout from '../layouts/Layout.astro';
           Бесплатно. Без рекламы. Без встроенных покупок.
         </p>
 
+        <div class="trust-row" aria-hidden="true">
+          <span>Офлайн</span>
+          <span class="trust-dot"></span>
+          <span>Локальные данные</span>
+          <span class="trust-dot"></span>
+          <span>Без рекламы</span>
+        </div>
+
         <a
           href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
-          class="btn btn-primary"
+          class="btn btn-primary final-btn"
           target="_blank"
           rel="noopener"
         >
@@ -343,25 +342,23 @@ import Layout from '../layouts/Layout.astro';
           <p class="qr-label">Наведите камеру телефона</p>
         </div>
       </div>
-    </section>
 
-    <footer class="footer">
-      <p>
-        &copy; 2026 Дерево привычек.
-        <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
-        <span class="dot">·</span>
-        <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
-      </p>
-      <p class="footer-mail">
-        <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
-      </p>
-    </footer>
+      <footer class="footer">
+        <p>
+          &copy; 2026 Дерево привычек.
+          <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
+          <span class="dot">·</span>
+          <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
+        </p>
+        <p class="footer-mail">
+          <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
+        </p>
+      </footer>
+    </section>
   </main>
 
   <script>
-    // ═══════════════════════════════════════
     // Sticky CTA
-    // ═══════════════════════════════════════
     const stickyCta = document.getElementById('sticky-cta');
     const hero = document.querySelector('.hero');
 
@@ -379,9 +376,7 @@ import Layout from '../layouts/Layout.astro';
       ctaObserver.observe(hero);
     }
 
-    // ═══════════════════════════════════════
-    // Reveal при скролле
-    // ═══════════════════════════════════════
+    // Reveal
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver(
@@ -400,9 +395,7 @@ import Layout from '../layouts/Layout.astro';
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
 
-    // ═══════════════════════════════════════
-    // Блик за курсором (только для мыши)
-    // ═══════════════════════════════════════
+    // Блик за курсором на карточках
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -417,9 +410,7 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    // ═══════════════════════════════════════
-    // Параллакс дерева (десктоп, только если есть мышь)
-    // ═══════════════════════════════════════
+    // Параллакс дерева на десктопе
     const treeFrame = document.getElementById('tree-frame');
     const treeStage = document.getElementById('tree-stage');
 
@@ -446,10 +437,8 @@ import Layout from '../layouts/Layout.astro';
         const rect = treeStage.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
-        // Смещение максимум ±12px
         targetX = ((e.clientX - cx) / rect.width) * 24;
         targetY = ((e.clientY - cy) / rect.height) * 24;
-
         if (!rafId) rafId = requestAnimationFrame(animate);
       }, { passive: true });
 
@@ -513,17 +502,12 @@ import Layout from '../layouts/Layout.astro';
       overflow: hidden;
     }
 
-    /* Появление слов */
     .hero-word {
       display: inline-block;
       opacity: 0;
       transform: translate3d(0, 100%, 0);
       animation: word-in 0.85s var(--ease-out) forwards;
       animation-delay: var(--d, 0s);
-    }
-
-    .hero-line:nth-child(2) .hero-word {
-      /* вторую строку чуть позже */
     }
 
     @keyframes word-in {
@@ -544,7 +528,7 @@ import Layout from '../layouts/Layout.astro';
     .hero-cta {
       display: flex;
       flex-direction: column;
-      gap: 0.625rem;
+      align-items: center;
       width: 100%;
       max-width: 320px;
     }
@@ -553,9 +537,7 @@ import Layout from '../layouts/Layout.astro';
       width: 100%;
     }
 
-    /* ═══════════════════════════════════════
-       ДЕРЕВО
-       ═══════════════════════════════════════ */
+    /* Дерево */
     .hero-visual {
       width: 100%;
       display: flex;
@@ -601,9 +583,6 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    /* ═══════════════════════════════════════
-       ЖИВОЙ ТУМАН ЗА ДЕРЕВОМ
-       ═══════════════════════════════════════ */
     .fog {
       position: absolute;
       border-radius: 50%;
@@ -627,7 +606,7 @@ import Layout from '../layouts/Layout.astro';
       height: 260px;
       bottom: 15%;
       right: 5%;
-      background: radial-gradient(circle, rgba(255, 217, 102, 0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 217, 102, 0.1) 0%, transparent 70%);
       animation: fog-drift-2 22s ease-in-out infinite alternate;
     }
 
@@ -652,7 +631,6 @@ import Layout from '../layouts/Layout.astro';
     .tree-svg {
       width: 100%;
       height: auto;
-      /* Тень упрощена для производительности */
       filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
     }
 
@@ -667,9 +645,6 @@ import Layout from '../layouts/Layout.astro';
       50% { transform: rotate(0.45deg); }
     }
 
-    /* ═══════════════════════════════════════
-       ПЛАВАЮЩИЕ ЧАСТИЦЫ
-       ═══════════════════════════════════════ */
     .particle {
       position: absolute;
       border-radius: 50%;
@@ -679,68 +654,47 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .particle-1 {
-      width: 5px;
-      height: 5px;
-      top: 22%;
-      left: 16%;
-      animation: float-1 9s ease-in-out infinite;
-      opacity: 0.5;
+      width: 5px; height: 5px; top: 22%; left: 16%;
+      animation: float-1 9s ease-in-out infinite; opacity: 0.5;
     }
-
     .particle-2 {
-      width: 3px;
-      height: 3px;
-      top: 58%;
-      right: 14%;
-      animation: float-2 12s ease-in-out infinite reverse;
-      opacity: 0.35;
+      width: 3px; height: 3px; top: 58%; right: 14%;
+      animation: float-2 12s ease-in-out infinite reverse; opacity: 0.35;
     }
-
     .particle-3 {
-      width: 4px;
-      height: 4px;
-      bottom: 18%;
-      left: 24%;
-      animation: float-3 10s ease-in-out infinite 1s;
-      opacity: 0.25;
+      width: 4px; height: 4px; bottom: 18%; left: 24%;
+      animation: float-3 10s ease-in-out infinite 1s; opacity: 0.25;
     }
-
     .particle-4 {
-      width: 3px;
-      height: 3px;
-      top: 40%;
-      right: 20%;
-      animation: float-1 14s ease-in-out infinite 2s;
-      opacity: 0.3;
+      width: 3px; height: 3px; top: 40%; right: 20%;
+      animation: float-1 14s ease-in-out infinite 2s; opacity: 0.3;
     }
 
     @keyframes float-1 {
       0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.3; }
       50% { transform: translate3d(12px, -24px, 0); opacity: 0.6; }
     }
-
     @keyframes float-2 {
       0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
       50% { transform: translate3d(-16px, -18px, 0); opacity: 0.5; }
     }
-
     @keyframes float-3 {
       0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
       50% { transform: translate3d(8px, -30px, 0); opacity: 0.45; }
     }
 
     /* ═══════════════════════════════════════
-       BENTO — без blur, с бликом за курсором
+       ТРИ КИТА
        ═══════════════════════════════════════ */
-    .bento-grid {
+    .kits-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.85rem;
+      gap: 0.9rem;
     }
 
-    .bento-card {
+    .kit-card {
       position: relative;
-      padding: 1.5rem 1.4rem;
+      padding: 1.4rem 1.35rem 1.5rem;
       border-radius: var(--radius);
       background:
         linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%),
@@ -752,9 +706,7 @@ import Layout from '../layouts/Layout.astro';
       contain: layout style paint;
     }
 
-    /* Блик за курсором (видимый только при наведении) */
-    .bento-card::before,
-    .step-card::before {
+    .kit-card::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -769,19 +721,16 @@ import Layout from '../layouts/Layout.astro';
       pointer-events: none;
     }
 
-    .bento-card:hover::before,
-    .step-card:hover::before {
+    .kit-card:hover::before {
       opacity: 1;
     }
 
-    .bento-card:hover {
+    .kit-card:hover {
       border-color: var(--border-strong);
       transform: translate3d(0, -2px, 0);
     }
 
-    /* Верхняя световая линия */
-    .bento-card::after,
-    .step-card::after {
+    .kit-card::after {
       content: "";
       position: absolute;
       top: 0;
@@ -792,117 +741,142 @@ import Layout from '../layouts/Layout.astro';
       pointer-events: none;
     }
 
-    .bento-icon {
-      display: inline-flex;
+    /* Мини-мокапы */
+    .kit-visual {
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      margin-bottom: 1rem;
+      min-height: 120px;
+      margin-bottom: 1.1rem;
+      padding: 0.75rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
     }
 
-    .bento-icon svg {
-      width: 24px;
-      height: 24px;
+    .kit-visual-tree svg {
+      width: 110px;
+      height: 110px;
+      display: block;
     }
 
-    .bento-title {
-      font-size: 1.0625rem;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.4rem;
-    }
-
-    .bento-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    .bento-metric {
+    .widget-mock {
+      width: 118px;
+      height: 118px;
+      padding: 12px;
+      border-radius: 18px;
+      background: linear-gradient(160deg, #1A1A1A 0%, #0F0F0F 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
     }
 
-    .bento-metric-num {
+    .widget-mock-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .widget-mock-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .widget-mock-flame {
+      width: 14px;
+      height: 14px;
+    }
+
+    .widget-mock-num {
       font-size: 2rem;
       font-weight: 900;
-      letter-spacing: -0.03em;
       color: var(--accent);
       line-height: 1;
+      letter-spacing: -0.04em;
     }
 
-    .bento-metric-label {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
+    .widget-mock-foot {
+      font-size: 0.6rem;
       font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.03em;
     }
 
-    /* ═══════════════════════════════════════
-       STEPS
-       ═══════════════════════════════════════ */
-    .steps-grid {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
+    .diary-mock {
+      width: 160px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: linear-gradient(160deg, #151515 0%, #0B0B0B 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
     }
 
-    .step-card {
-      position: relative;
-      padding: 1.5rem 1.4rem;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-      contain: layout style paint;
+    .diary-mock-head {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
     }
 
-    .step-card:hover {
-      border-color: var(--border-strong);
-      transform: translate3d(0, -2px, 0);
+    .diary-mock-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
     }
 
-    .step-num {
+    .diary-mock-date {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .diary-mock-line {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 6px;
+    }
+
+    .kit-label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.2em;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
     }
 
-    .step-title {
-      font-size: 1.0625rem;
+    .kit-title {
+      font-size: 1.25rem;
       font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.5rem;
     }
 
-    .step-text {
+    .kit-text {
       font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.55;
     }
 
     /* ═══════════════════════════════════════
-       FINAL CTA
+       ФИНАЛ
        ═══════════════════════════════════════ */
     .final-cta {
       position: relative;
       z-index: 1;
-      padding: 4rem 1.25rem 4.5rem;
+      padding: 4rem 1.25rem 0;
       text-align: center;
       background: radial-gradient(
-        ellipse at 50% 100%,
+        ellipse at 50% 60%,
         rgba(138, 230, 106, 0.08) 0%,
         transparent 65%
       );
@@ -915,11 +889,31 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.1rem;
+      gap: 1rem;
+      padding-bottom: 3.5rem;
     }
 
-    .final-cta .btn {
-      margin-top: 0.4rem;
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
+
+    .trust-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      opacity: 0.6;
+    }
+
+    .final-btn {
+      margin-top: 0.5rem;
       min-width: 260px;
     }
 
@@ -927,13 +921,13 @@ import Layout from '../layouts/Layout.astro';
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 0.65rem;
-      margin-top: 1.5rem;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
     }
 
     .qr-frame {
-      width: 128px;
-      height: 128px;
+      width: 120px;
+      height: 120px;
       padding: 12px;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.03);
@@ -947,7 +941,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .qr-label {
-      font-size: 0.8125rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
@@ -960,7 +954,7 @@ import Layout from '../layouts/Layout.astro';
       padding: 1.75rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 0.8125rem;
+      font-size: 0.78rem;
       color: var(--text-dim);
       line-height: 1.7;
     }
@@ -990,14 +984,7 @@ import Layout from '../layouts/Layout.astro';
        ПЛАНШЕТ
        ═══════════════════════════════════════ */
     @media (min-width: 640px) {
-      .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-      .bento-large {
-        grid-column: span 2;
-      }
-      .steps-grid {
+      .kits-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
       }
@@ -1016,7 +1003,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     /* ═══════════════════════════════════════
-       ДЕСКТОП — SPLIT HERO
+       ДЕСКТОП
        ═══════════════════════════════════════ */
     @media (min-width: 900px) {
       .hero {
@@ -1078,23 +1065,19 @@ import Layout from '../layouts/Layout.astro';
         display: flex;
       }
 
-      .bento-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .kits-grid {
         gap: 1.1rem;
-      }
-
-      .bento-large {
-        grid-column: span 2;
       }
 
       .section {
         padding: 5rem 2rem;
       }
+
+      .final-cta {
+        padding-top: 5rem;
+      }
     }
 
-    /* ═══════════════════════════════════════
-       УМЕНЬШЕННОЕ ДВИЖЕНИЕ
-       ═══════════════════════════════════════ */
     @media (prefers-reduced-motion: reduce) {
       .hero-word {
         opacity: 1;
