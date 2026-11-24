@@ -1,4 +1,5 @@
 ---
+// src/pages/articles/[slug].astro
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection, render } from 'astro:content';
@@ -21,11 +22,43 @@ const { Content } = await render(article);
 
 const formatDate = (d: Date) =>
   d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+// JSON-LD для структурированных данных статьи
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: article.data.pubDate.toISOString(),
+  dateModified: (article.data.updatedDate ?? article.data.pubDate).toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: 'Дерево привычек',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Дерево привычек',
+  },
+  mainEntityOfPage: new URL(
+    `/habitwood-landing/articles/${article.id}/`,
+    Astro.site
+  ).toString(),
+  keywords: article.data.tags.join(', '),
+};
 ---
 
-<Layout title={`${article.data.title} – Дерево привычек`}>
+<Layout
+  title={article.data.title}
+  description={article.data.description}
+  ogType="article"
+  articlePublishedTime={article.data.pubDate.toISOString()}
+  articleTags={article.data.tags}
+>
   <div class="bg-noise" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- JSON-LD разметка для поисковиков -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
@@ -138,7 +171,7 @@ const formatDate = (d: Date) =>
       }
     }
 
-    // ═══ STICKY CTA на мобилке ═══
+    // ═══ STICKY CTA НА МОБИЛКЕ ═══
     const stickyCta = document.getElementById('sticky-cta');
     const articleHeader = document.querySelector('.article-header');
 
