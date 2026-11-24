@@ -1,5 +1,4 @@
 ---
-// src/pages/articles/index.astro
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -27,7 +26,7 @@ const sortedArticles = allArticles.sort(
 
     <div class="articles-grid">
       {sortedArticles.map((article) => (
-        <a href={`/articles/${article.id}`} class="article-card">
+        <a href={`${import.meta.env.BASE_URL}articles/${article.id}`} class="article-card">
           <h2 class="article-title">{article.data.title}</h2>
           <p class="article-description">{article.data.description}</p>
           <time datetime={article.data.pubDate.toISOString()} class="article-date">
@@ -40,6 +39,8 @@ const sortedArticles = allArticles.sort(
     {sortedArticles.length === 0 && (
       <p class="empty-state">Статьи скоро появятся. Следите за обновлениями!</p>
     )}
+
+    <a href={import.meta.env.BASE_URL} class="back-home">← На главную</a>
   </main>
 </Layout>
 
@@ -97,5 +98,18 @@ const sortedArticles = allArticles.sort(
     text-align: center;
     color: var(--text-muted);
     padding: 3rem 0;
+  }
+
+  .back-home {
+    display: inline-block;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .back-home:hover {
+    color: var(--text);
   }
 </style>
