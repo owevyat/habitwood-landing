@@ -21,7 +21,6 @@ const {
 const siteName = 'Дерево привычек';
 const fullTitle = `${title} | ${siteName}`;
 
-// Канонический URL: текущий путь + origin из astro.config site
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/habitwood-landing/favicon.svg', Astro.site).toString();
 ---
@@ -39,12 +38,37 @@ const ogImage = new URL('/habitwood-landing/favicon.svg', Astro.site).toString()
 
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
 
+    <!-- ✅ Astro SEO Kit: title, description, canonical, OG, Twitter -->
     <SEO
       title={fullTitle}
       description={description}
       canonical={canonicalURL}
-      openGraph={{ ... }}
-      twitter={{ ... }}
+      openGraph={{
+        basic: {
+          title: fullTitle,
+          type: ogType,
+          image: ogImage,
+          url: canonicalURL,
+        },
+        optional: {
+          description: description,
+          siteName: siteName,
+          locale: 'ru_RU',
+        },
+        article: ogType === 'article'
+          ? {
+              publishedTime: articlePublishedTime,
+              authors: ['Дерево привычек'],
+              tags: articleTags,
+            }
+          : undefined,
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: fullTitle,
+        description: description,
+        image: ogImage,
+      }}
     />
   </head>
   <body>
