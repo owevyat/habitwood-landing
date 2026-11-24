@@ -172,7 +172,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="qr-frame">
             <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwww.rustore.ru%2Fcatalog%2Fapp%2Fcom.owevyat.habitwood&format=svg&color=0A0A0A&bgcolor=F2F2F2&qzone=2&margin=0" alt="QR-код для скачивания приложения в RuStore" width="200" height="200" loading="lazy" />
           </div>
-          <p class="qr-label">Наведите камеру <span class="qr-rustore"><svg class="qr-rustore-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>(RUSTORE)</span></p>
+          <p class="qr-label">Наведите камеру <span class="qr-rustore"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>rustore</span></p>
         </div>
       </div>
     </section>
@@ -271,7 +271,7 @@ import Layout from '../layouts/Layout.astro';
     .hero-subtitle { font-size: clamp(0.95rem, 4vw, 1.0625rem); color: var(--text-muted); max-width: 440px; line-height: 1.6; margin-bottom: 1.5rem; }
     .hero-cta { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 320px; }
     .hero-cta .btn { width: 100%; }
-    .hero-visual { width: 100%; display: flex; justify-content: center; margin-top: -77px; } /* мобилка: подняли на 20px */
+    .hero-visual { width: 100%; display: flex; justify-content: center; margin-top: -100px; } /* мобилка: подняли на 20px */
     .tree-stage { position: relative; width: 100%; display: flex; justify-content: center; padding-bottom: 0.5rem; will-change: transform; }
     .tree-glow { position: absolute; top: 50%; left: 50%; width: min(100vw, 520px); height: min(100vw, 520px); transform: translate3d(-50%, -50%, 0); background: radial-gradient(circle, rgba(138, 230, 106, 0.22) 0%, rgba(138, 230, 106, 0.06) 38%, rgba(138, 230, 106, 0) 70%); pointer-events: none; animation: glow-pulse 6s ease-in-out infinite; will-change: transform, opacity; }
     @keyframes glow-pulse { 0%, 100% { opacity: 0.75; transform: translate3d(-50%, -50%, 0) scale(1); } 50% { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1.07); } }
@@ -367,7 +367,7 @@ import Layout from '../layouts/Layout.astro';
       .hero-title { font-size: 4rem; }
       .hero-subtitle { max-width: 480px; }
       .hero-cta { justify-content: flex-start; }
-      .hero-visual { flex: 1; justify-content: flex-end; margin-top: -150px; } /* десктоп: подняли на 33px + базовые -20px = -53px */
+      .hero-visual { flex: 1; justify-content: flex-end; margin-top: -200px; } /* десктоп: подняли на 33px + базовые -20px = -53px */
       .tree-frame { width: 420px; }
       .tree-glow { width: 600px; height: 600px; }
       .fog-1 { width: 460px; height: 460px; }
