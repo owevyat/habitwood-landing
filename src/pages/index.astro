@@ -7,60 +7,28 @@ import Layout from '../layouts/Layout.astro';
   <div class="bg-grid" aria-hidden="true"></div>
 
   <main>
-    <!-- ═══════════════════════════════════════
-         СЕКЦИЯ 1 — HERO
-         ═══════════════════════════════════════ -->
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-content">
           <span class="hero-eyebrow">Трекер привычек</span>
-
           <h1 class="hero-title">
-            <span class="hero-line">
-              <span class="hero-word" style="--d: 0.05s">Растите</span>
-              <span class="hero-word accent" style="--d: 0.15s">дерево,</span>
-            </span>
-            <span class="hero-line">
-              <span class="hero-word accent" style="--d: 0.25s">меняя</span>
-              <span class="hero-word" style="--d: 0.35s">жизнь</span>
-            </span>
+            <span class="hero-line"><span class="hero-word" style="--d: 0.05s">Растите</span><span class="hero-word accent" style="--d: 0.15s">дерево,</span></span>
+            <span class="hero-line"><span class="hero-word accent" style="--d: 0.25s">меняя</span><span class="hero-word" style="--d: 0.35s">жизнь</span></span>
           </h1>
-
-          <p class="hero-subtitle">
-            Визуальный трекер привычек, который превращает рутину в игру.
-            Дерево, дневник и виджет – всё в одном приложении.
-          </p>
-
+          <p class="hero-subtitle">Визуальный трекер привычек, который превращает рутину в игру. Дерево, дневник и виджет – всё в одном приложении.</p>
           <div class="hero-cta">
-            <a
-              href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener"
-            >
-              Скачать в RuStore
-            </a>
+            <a href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood" class="btn btn-primary" target="_blank" rel="noopener">Скачать в RuStore</a>
           </div>
         </div>
-
         <div class="hero-visual">
           <div class="tree-stage" id="tree-stage">
             <div class="tree-glow" aria-hidden="true"></div>
             <div class="fog fog-1" aria-hidden="true"></div>
             <div class="fog fog-2" aria-hidden="true"></div>
-
             <div class="tree-frame" id="tree-frame">
-              <svg
-                class="tree-svg"
-                viewBox="0 0 280 360"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Дерево привычек в стадии цветения"
-              >
+              <svg class="tree-svg" viewBox="0 0 280 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Дерево привычек">
                 <g id="static-parts">
-                  <g id="island-shadow">
-                    <ellipse cx="140" cy="346" rx="42" ry="4" fill="#2A1A10" opacity="0.4" />
-                  </g>
+                  <g id="island-shadow"><ellipse cx="140" cy="346" rx="42" ry="4" fill="#2A1A10" opacity="0.4" /></g>
                   <g id="island-roots">
                     <path d="M 122 310 Q 118 326 124 340" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
                     <path d="M 140 312 Q 140 328 143 342" fill="none" stroke="#4A3420" stroke-width="2.5" stroke-linecap="round" />
@@ -74,9 +42,7 @@ import Layout from '../layouts/Layout.astro';
                     <circle cx="86" cy="340" r="2.5" fill="#4A3420" opacity="0.7" />
                     <circle cx="190" cy="336" r="2" fill="#4A3420" opacity="0.7" />
                   </g>
-                  <g id="island-back">
-                    <path d="M 76 264 C 76 254 106 248 140 248 C 174 248 204 254 204 264 L 204 282 C 200 290 186 296 172 295 L 172 302 C 178 308 176 314 170 316 L 170 320 C 172 324 168 328 160 328 C 154 332 146 330 140 330 C 134 330 126 332 120 328 C 112 328 108 324 110 320 L 110 316 C 104 314 102 308 108 302 L 108 295 C 94 296 80 290 76 282 Z" fill="#3A2A18" />
-                  </g>
+                  <g id="island-back"><path d="M 76 264 C 76 254 106 248 140 248 C 174 248 204 254 204 264 L 204 282 C 200 290 186 296 172 295 L 172 302 C 178 308 176 314 170 316 L 170 320 C 172 324 168 328 160 328 C 154 332 146 330 140 330 C 134 330 126 332 120 328 C 112 328 108 324 110 320 L 110 316 C 104 314 102 308 108 302 L 108 295 C 94 296 80 290 76 282 Z" fill="#3A2A18" /></g>
                   <g id="island-main">
                     <path d="M 100 300 C 100 294 118 290 140 290 C 162 290 180 294 180 300 L 180 310 C 174 314 162 316 152 315 C 146 317 144 316 140 316 C 136 316 134 317 128 315 C 118 316 106 314 100 310 Z" fill="#4A3420" />
                     <ellipse cx="140" cy="300" rx="38" ry="3" fill="#5A4538" />
@@ -86,85 +52,37 @@ import Layout from '../layouts/Layout.astro';
                     <ellipse cx="140" cy="267" rx="52" ry="5" fill="#9EDB70" />
                   </g>
                   <g id="island-front">
-                    <path d="M 100 284 Q 98 290 101 293 Q 103 289 102 284 Z" fill="#9EDB70" />
-                    <path d="M 118 287 Q 117 293 119 296 Q 121 292 120 287 Z" fill="#9EDB70" />
-                    <path d="M 160 287 Q 159 294 161 297 Q 163 292 162 287 Z" fill="#9EDB70" />
-                    <path d="M 178 285 Q 177 291 179 294 Q 181 290 180 285 Z" fill="#9EDB70" />
-                    <path d="M 108 297 Q 106 303 108 306 Q 110 302 110 297 Z" fill="#7AAE55" />
-                    <path d="M 172 297 Q 170 303 172 306 Q 174 301 174 297 Z" fill="#7AAE55" />
+                    <path d="M 100 284 Q 98 290 101 293 Q 103 289 102 284 Z" fill="#9EDB70" /><path d="M 118 287 Q 117 293 119 296 Q 121 292 120 287 Z" fill="#9EDB70" /><path d="M 160 287 Q 159 294 161 297 Q 163 292 162 287 Z" fill="#9EDB70" /><path d="M 178 285 Q 177 291 179 294 Q 181 290 180 285 Z" fill="#9EDB70" /><path d="M 108 297 Q 106 303 108 306 Q 110 302 110 297 Z" fill="#7AAE55" /><path d="M 172 297 Q 170 303 172 306 Q 174 301 174 297 Z" fill="#7AAE55" />
                   </g>
                   <g id="island-details">
-                    <ellipse cx="170" cy="268" rx="3" ry="1.5" fill="#3A2A1E" />
-                    <circle cx="105" cy="269" r="1.5" fill="#3A2A1E" />
-                    <circle cx="130" cy="271" r="1.2" fill="#3A2A1E" />
-                    <circle cx="155" cy="270" r="1.3" fill="#3A2A1E" />
-                    <circle cx="115" cy="288" r="1.5" fill="#3A2A1E" />
-                    <circle cx="165" cy="290" r="1.3" fill="#3A2A1E" />
-                    <path d="M 128 304 Q 132 308 130 312" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
-                    <path d="M 152 303 Q 155 307 153 311" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" />
-                    <ellipse cx="140" cy="271" rx="9" ry="1.5" fill="#4A3420" opacity="0.55" />
+                    <ellipse cx="170" cy="268" rx="3" ry="1.5" fill="#3A2A1E" /><circle cx="105" cy="269" r="1.5" fill="#3A2A1E" /><circle cx="130" cy="271" r="1.2" fill="#3A2A1E" /><circle cx="155" cy="270" r="1.3" fill="#3A2A1E" /><circle cx="115" cy="288" r="1.5" fill="#3A2A1E" /><circle cx="165" cy="290" r="1.3" fill="#3A2A1E" /><path d="M 128 304 Q 132 308 130 312" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" /><path d="M 152 303 Q 155 307 153 311" fill="none" stroke="#3A2A1E" stroke-width="0.8" stroke-linecap="round" /><ellipse cx="140" cy="271" rx="9" ry="1.5" fill="#4A3420" opacity="0.55" />
                   </g>
-
-                  <g id="trunk-shadow">
-                    <path d="M134 270 C133 250 134 235 136 222 C136 220 137 218 139 217 C141 218 142 220 143 222 C145 235 146 250 145 270 Z" fill="#4A3420" />
-                  </g>
-                  <g id="trunk-main">
-                    <path d="M136 270 C135 250 136 235 138 222 C138 220 139 218 140 217 C141 218 142 220 142 222 C144 235 145 250 144 270 Z" fill="#8A6538" />
-                  </g>
-                  <g id="trunk-light">
-                    <path d="M143 270 C144 250 144 235 143 223 C142.5 221 142 219 141 218 C142 219 142.5 221 143 224 C144 238 144 255 143 270 Z" fill="#B88A58" />
-                  </g>
+                  <g id="trunk-shadow"><path d="M134 270 C133 250 134 235 136 222 C136 220 137 218 139 217 C141 218 142 220 143 222 C145 235 146 250 145 270 Z" fill="#4A3420" /></g>
+                  <g id="trunk-main"><path d="M136 270 C135 250 136 235 138 222 C138 220 139 218 140 217 C141 218 142 220 142 222 C144 235 145 250 144 270 Z" fill="#8A6538" /></g>
+                  <g id="trunk-light"><path d="M143 270 C144 250 144 235 143 223 C142.5 221 142 219 141 218 C142 219 142.5 221 143 224 C144 238 144 255 143 270 Z" fill="#B88A58" /></g>
                   <g id="trunk-lines">
-                    <path d="M138 262 C137 248 138 232 139 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-                    <path d="M141 266 C141 248 142 232 142 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-                    <path d="M139 254 C138 244 139 232 140 224" fill="none" stroke="#3A2A1E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+                    <path d="M138 262 C137 248 138 232 139 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" /><path d="M141 266 C141 248 142 232 142 220" fill="none" stroke="#3A2A1E" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" /><path d="M139 254 C138 244 139 232 140 224" fill="none" stroke="#3A2A1E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
                   </g>
                   <g id="branches">
-                    <path d="M137 245 C134 241 132 236 130 230 L132 229 C134 235 136 239 139 243 Z" fill="#8A6538" />
-                    <path d="M142 240 C146 236 148 232 150 226 L152 227 C150 232 147 236 144 240 Z" fill="#8A6538" />
+                    <path d="M137 245 C134 241 132 236 130 230 L132 229 C134 235 136 239 139 243 Z" fill="#8A6538" /><path d="M142 240 C146 236 148 232 150 226 L152 227 C150 232 147 236 144 240 Z" fill="#8A6538" />
                   </g>
                 </g>
-
                 <g id="canopy">
                   <g id="canopy-back">
-                    <ellipse cx="125" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                    <ellipse cx="155" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                    <ellipse cx="140" cy="185" rx="18" ry="16" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                    <ellipse cx="118" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                    <ellipse cx="162" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
-                    <ellipse cx="140" cy="210" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
+                    <ellipse cx="125" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" /><ellipse cx="155" cy="175" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" /><ellipse cx="140" cy="185" rx="18" ry="16" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" /><ellipse cx="118" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" /><ellipse cx="162" cy="200" rx="14" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" /><ellipse cx="140" cy="210" rx="16" ry="14" fill="#3E7B3E" stroke="#3E7B3E" stroke-width="2" />
                   </g>
                   <g id="canopy-main">
-                    <ellipse cx="128" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="152" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="140" cy="186" rx="14" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="122" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="158" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="140" cy="195" rx="13" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="132" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="148" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="140" cy="218" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
-                    <ellipse cx="140" cy="172" rx="10" ry="8" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
+                    <ellipse cx="128" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="152" cy="178" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="140" cy="186" rx="14" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="122" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="158" cy="200" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="140" cy="195" rx="13" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="132" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="148" cy="210" rx="11" ry="11" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="140" cy="218" rx="12" ry="10" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" /><ellipse cx="140" cy="172" rx="10" ry="8" fill="#5ABA48" stroke="#5ABA48" stroke-width="2" />
                   </g>
                   <g id="canopy-light">
-                    <ellipse cx="138" cy="173" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                    <ellipse cx="152" cy="182" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                    <ellipse cx="145" cy="188" rx="10" ry="8" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                    <ellipse cx="135" cy="198" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                    <ellipse cx="150" cy="205" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
-                    <ellipse cx="140" cy="215" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
+                    <ellipse cx="138" cy="173" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" /><ellipse cx="152" cy="182" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" /><ellipse cx="145" cy="188" rx="10" ry="8" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" /><ellipse cx="135" cy="198" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" /><ellipse cx="150" cy="205" rx="8" ry="6" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" /><ellipse cx="140" cy="215" rx="9" ry="7" fill="#8AE66A" stroke="#8AE66A" stroke-width="1.5" />
                   </g>
                   <g id="canopy-highlights">
-                    <circle cx="140" cy="168" r="2.5" fill="#C8FA9A" />
-                    <circle cx="150" cy="176" r="2.5" fill="#C8FA9A" />
-                    <circle cx="145" cy="184" r="2.5" fill="#C8FA9A" />
-                    <circle cx="138" cy="193" r="2" fill="#C8FA9A" />
-                    <circle cx="148" cy="202" r="2" fill="#C8FA9A" />
+                    <circle cx="140" cy="168" r="2.5" fill="#C8FA9A" /><circle cx="150" cy="176" r="2.5" fill="#C8FA9A" /><circle cx="145" cy="184" r="2.5" fill="#C8FA9A" /><circle cx="138" cy="193" r="2" fill="#C8FA9A" /><circle cx="148" cy="202" r="2" fill="#C8FA9A" />
                   </g>
                 </g>
               </svg>
             </div>
-
             <span class="particle particle-1" aria-hidden="true"></span>
             <span class="particle particle-2" aria-hidden="true"></span>
             <span class="particle particle-3" aria-hidden="true"></span>
@@ -174,24 +92,15 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         СЕКЦИЯ 2 — ТРИ ИНСТРУМЕНТА
-         ═══════════════════════════════════════ -->
     <section id="kits" class="section reveal">
       <header class="section-header">
-        <h2 class="section-title">
-          Три инструмента, которые <span class="accent">меняют привычки</span>
-        </h2>
-        <p class="section-subtitle">
-          Не просто галочки. Три механики, которые работают вместе – или по отдельности.
-        </p>
+        <h2 class="section-title">Три инструмента, которые <span class="accent">меняют привычки</span></h2>
+        <p class="section-subtitle">Не просто галочки. Три механики, которые работают вместе – или по отдельности.</p>
       </header>
-
       <div class="kits-grid">
-        <!-- КИТ 1 – Дерево -->
         <article class="kit-card reveal reveal-d1" data-glow>
-          <div class="kit-showcase">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <div class="kit-icon" aria-hidden="true">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="60" cy="108" rx="26" ry="3" fill="#2A1A10" opacity="0.5" />
               <path d="M60 108 C59 100 60 92 60 84" stroke="#8A6538" stroke-width="3" stroke-linecap="round" fill="none" />
               <path d="M60 84 C59 82 60 80 60 78" stroke="#8A6538" stroke-width="2.4" stroke-linecap="round" fill="none" />
@@ -208,180 +117,116 @@ import Layout from '../layouts/Layout.astro';
               <circle cx="62" cy="70" r="1.2" fill="#C8FA9A" />
             </svg>
           </div>
-
           <div class="kit-body">
             <span class="kit-label">Мотивация</span>
             <h3 class="kit-title">Дерево</h3>
-            <p class="kit-text">
-              Каждая выполненная привычка питает дерево. Вы видите физический
-              результат дисциплины – от ростка до цветущего сада.
-            </p>
+            <p class="kit-text">Каждая выполненная привычка питает дерево. Вы видите физический результат дисциплины – от ростка до цветущего сада.</p>
           </div>
         </article>
 
-        <!-- КИТ 2 – Виджет -->
         <article class="kit-card reveal reveal-d2" data-glow>
-          <div class="kit-showcase">
-            <div class="widget-mock" aria-hidden="true">
+          <div class="kit-icon" aria-hidden="true">
+            <div class="widget-mock">
               <div class="widget-mock-head">
                 <span class="widget-mock-label">Стрик</span>
-                <svg class="widget-mock-flame" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 2 C6 5 4 7 4 10 a4 4 0 0 0 8 0 C12 7 10 5 8 2 Z" stroke="#FF8C42" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M8 7 C7 8.5 6.5 9.5 6.5 10.5 a1.5 1.5 0 0 0 3 0 C9.5 9.5 9 8.5 8 7 Z" fill="#FF8C42" />
-                </svg>
+                <svg class="widget-mock-flame" viewBox="0 0 16 16" fill="none"><path d="M8 2 C6 5 4 7 4 10 a4 4 0 0 0 8 0 C12 7 10 5 8 2 Z" stroke="#FF8C42" stroke-width="1.5" stroke-linejoin="round" /><path d="M8 7 C7 8.5 6.5 9.5 6.5 10.5 a1.5 1.5 0 0 0 3 0 C9.5 9.5 9 8.5 8 7 Z" fill="#FF8C42" /></svg>
               </div>
               <div class="widget-mock-num">12</div>
               <div class="widget-mock-foot">48 выполнено</div>
             </div>
           </div>
-
           <div class="kit-body">
             <span class="kit-label">Прогресс</span>
             <h3 class="kit-title">Виджет</h3>
-            <p class="kit-text">
-              Стрик и количество выполненных привычек – прямо на рабочем столе.
-              Не нужно открывать приложение, чтобы увидеть прогресс.
-            </p>
+            <p class="kit-text">Стрик и количество выполненных привычек – прямо на рабочем столе. Не нужно открывать приложение, чтобы увидеть прогресс.</p>
           </div>
         </article>
 
-        <!-- КИТ 3 – Дневник -->
         <article class="kit-card reveal reveal-d3" data-glow>
-          <div class="kit-showcase">
-            <div class="diary-mock" aria-hidden="true">
-              <div class="diary-mock-head">
-                <span class="diary-mock-dot" style="background:#8AE66A"></span>
-                <span class="diary-mock-date">24 ноя</span>
-              </div>
+          <div class="kit-icon" aria-hidden="true">
+            <div class="diary-mock">
+              <div class="diary-mock-head"><span class="diary-mock-dot" style="background:#8AE66A"></span><span class="diary-mock-date">24 ноя</span></div>
               <div class="diary-mock-line" style="width:88%"></div>
               <div class="diary-mock-line" style="width:70%"></div>
               <div class="diary-mock-line" style="width:52%"></div>
             </div>
           </div>
-
           <div class="kit-body">
             <span class="kit-label">Рефлексия</span>
             <h3 class="kit-title">Дневник</h3>
-            <p class="kit-text">
-              Записывайте мысли, отслеживайте настроение, понимайте триггеры.
-              Всё хранится локально и приватно.
-            </p>
+            <p class="kit-text">Записывайте мысли, отслеживайте настроение, понимайте триггеры. Всё хранится локально и приватно.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         СЕКЦИЯ 3 – ФИНАЛ
-         ═══════════════════════════════════════ -->
     <section class="final-cta reveal">
       <div class="final-inner">
-        <h2 class="section-title">
-          Посадите своё <span class="accent">первое семечко</span>
-        </h2>
-        <p class="section-subtitle">
-          Бесплатно. Без рекламы. Без встроенных покупок.
-        </p>
-
+        <h2 class="section-title">Посадите своё <span class="accent">первое семечко</span></h2>
+        <p class="section-subtitle">Бесплатно. Без рекламы. Без встроенных покупок.</p>
         <div class="trust-row" aria-hidden="true">
-          <span>Офлайн</span>
-          <span class="trust-dot"></span>
-          <span>Локальные данные</span>
-          <span class="trust-dot"></span>
-          <span>Без рекламы</span>
+          <span>Офлайн</span><span class="trust-dot"></span><span>Локальные данные</span><span class="trust-dot"></span><span>Без рекламы</span>
         </div>
-
-        <a
-          href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood"
-          class="btn btn-primary final-btn"
-          target="_blank"
-          rel="noopener"
-        >
-          Скачать в RuStore
-        </a>
-
+        <a href="https://www.rustore.ru/catalog/app/com.owevyat.habitwood" class="btn btn-primary final-btn" target="_blank" rel="noopener">Скачать в RuStore</a>
         <div class="qr-block">
           <div class="qr-frame">
-            <img
-              class="qr-img"
-              src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwww.rustore.ru%2Fcatalog%2Fapp%2Fcom.owevyat.habitwood&format=svg&color=0A0A0A&bgcolor=F2F2F2&qzone=2&margin=0"
-              alt="QR-код для скачивания приложения в RuStore"
-              width="200"
-              height="200"
-              loading="lazy"
-            />
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwww.rustore.ru%2Fcatalog%2Fapp%2Fcom.owevyat.habitwood&format=svg&color=0A0A0A&bgcolor=F2F2F2&qzone=2&margin=0" alt="QR-код для скачивания приложения в RuStore" width="200" height="200" loading="lazy" />
           </div>
-          <p class="qr-label">Наведите камеру телефона</p>
+          <p class="qr-label">Наведите камеру <span class="qr-rustore"><svg class="qr-rustore-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>(RUSTORE)</span></p>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         FOOTER
-         ═══════════════════════════════════════ -->
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-brand">
           <a href="/" class="footer-logo">Дерево привычек</a>
           <span class="footer-tagline">Визуальный трекер привычек</span>
         </div>
-
         <nav class="footer-nav" aria-label="Правовая информация">
           <a href="https://owevyat.github.io/habitwood/privacy.html">Политика конфиденциальности</a>
           <a href="https://owevyat.github.io/habitwood/terms.html">Условия использования</a>
           <a href="mailto:owevyat.support@gmail.com">owevyat.support@gmail.com</a>
         </nav>
-
         <p class="footer-copy">© 2026 Дерево привычек. Все права защищены.</p>
       </div>
     </footer>
   </main>
 
   <script>
-    // Sticky CTA
     const stickyCta = document.getElementById('sticky-cta');
     const hero = document.querySelector('.hero');
-
     if (stickyCta && hero) {
-      const ctaObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const visible = !entry.isIntersecting;
-            stickyCta.classList.toggle('is-visible', visible);
-            stickyCta.setAttribute('aria-hidden', String(!visible));
-          });
-        },
-        { threshold: 0.05 }
-      );
+      const ctaObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const visible = !entry.isIntersecting;
+          stickyCta.classList.toggle('is-visible', visible);
+          stickyCta.setAttribute('aria-hidden', String(!visible));
+        });
+      }, { threshold: 0.05 });
       ctaObserver.observe(hero);
     }
 
-    // Reveal
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
-      );
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
       revealEls.forEach((el) => revealObserver.observe(el));
     } else {
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
 
-    // Блик за курсором
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (hasFinePointer && !reduceMotion) {
-      const glowCards = document.querySelectorAll('[data-glow]');
-      glowCards.forEach((card) => {
+      document.querySelectorAll('[data-glow]').forEach((card) => {
         card.addEventListener('pointermove', (e) => {
           const rect = card.getBoundingClientRect();
           card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
@@ -390,807 +235,160 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    // Параллакс дерева
     const treeFrame = document.getElementById('tree-frame');
     const treeStage = document.getElementById('tree-stage');
-
     if (hasFinePointer && !reduceMotion && treeFrame && treeStage) {
-      let rafId = null;
-      let targetX = 0;
-      let targetY = 0;
-      let currentX = 0;
-      let currentY = 0;
-
+      let rafId = null, targetX = 0, targetY = 0, currentX = 0, currentY = 0;
       const animate = () => {
         currentX += (targetX - currentX) * 0.08;
         currentY += (targetY - currentY) * 0.08;
         treeFrame.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-
-        if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
-          rafId = requestAnimationFrame(animate);
-        } else {
-          rafId = null;
-        }
+        if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) rafId = requestAnimationFrame(animate);
+        else rafId = null;
       };
-
       treeStage.addEventListener('pointermove', (e) => {
         const rect = treeStage.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        targetX = ((e.clientX - cx) / rect.width) * 24;
-        targetY = ((e.clientY - cy) / rect.height) * 24;
+        targetX = ((e.clientX - (rect.left + rect.width / 2)) / rect.width) * 24;
+        targetY = ((e.clientY - (rect.top + rect.height / 2)) / rect.height) * 24;
         if (!rafId) rafId = requestAnimationFrame(animate);
       }, { passive: true });
-
       treeStage.addEventListener('pointerleave', () => {
-        targetX = 0;
-        targetY = 0;
+        targetX = 0; targetY = 0;
         if (!rafId) rafId = requestAnimationFrame(animate);
       });
     }
   </script>
 
   <style is:global>
-    /* ═══════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════ */
-    .hero {
-      position: relative;
-      z-index: 1;
-      padding: 2.5rem 1.25rem 1.5rem;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      max-width: 560px;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.85rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 10vw, 3.6rem);
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      line-height: 1.02;
-      margin-bottom: 0.85rem;
-    }
-
-    .hero-line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-      animation: word-in 0.85s var(--ease-out) forwards;
-      animation-delay: var(--d, 0s);
-    }
-
-    @keyframes word-in {
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    .hero-subtitle {
-      font-size: clamp(0.95rem, 4vw, 1.0625rem);
-      color: var(--text-muted);
-      max-width: 440px;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .hero-cta .btn {
-      width: 100%;
-    }
-
-    /* Дерево – поднято на мобилке на 33px */
-    .hero-visual {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-top: -33px;
-    }
-
-    .tree-stage {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 0.5rem;
-      will-change: transform;
-    }
-
-    .tree-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(100vw, 520px);
-      height: min(100vw, 520px);
-      transform: translate3d(-50%, -50%, 0);
-      background: radial-gradient(
-        circle,
-        rgba(138, 230, 106, 0.22) 0%,
-        rgba(138, 230, 106, 0.06) 38%,
-        rgba(138, 230, 106, 0) 70%
-      );
-      pointer-events: none;
-      animation: glow-pulse 6s ease-in-out infinite;
-      will-change: transform, opacity;
-    }
-
-    @keyframes glow-pulse {
-      0%, 100% {
-        opacity: 0.75;
-        transform: translate3d(-50%, -50%, 0) scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: translate3d(-50%, -50%, 0) scale(1.07);
-      }
-    }
-
-    .fog {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(40px);
-      opacity: 0.4;
-      mix-blend-mode: screen;
-    }
-
-    .fog-1 {
-      width: 320px;
-      height: 320px;
-      top: 20%;
-      left: 5%;
-      background: radial-gradient(circle, rgba(138, 230, 106, 0.25) 0%, transparent 70%);
-      animation: fog-drift-1 18s ease-in-out infinite alternate;
-    }
-
-    .fog-2 {
-      width: 260px;
-      height: 260px;
-      bottom: 15%;
-      right: 5%;
-      background: radial-gradient(circle, rgba(255, 217, 102, 0.1) 0%, transparent 70%);
-      animation: fog-drift-2 22s ease-in-out infinite alternate;
-    }
-
-    @keyframes fog-drift-1 {
-      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.3; }
-      100% { transform: translate3d(40px, -30px, 0) scale(1.15); opacity: 0.5; }
-    }
-
-    @keyframes fog-drift-2 {
-      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.4; }
-      100% { transform: translate3d(-40px, 20px, 0) scale(1.2); opacity: 0.25; }
-    }
-
-    .tree-frame {
-      position: relative;
-      width: min(82vw, 340px);
-      z-index: 2;
-      will-change: transform;
-      transform: translate3d(0, 0, 0);
-    }
-
-    .tree-svg {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
-    }
-
-    #canopy {
-      transform-origin: 140px 250px;
-      animation: sway 9s ease-in-out infinite;
-      will-change: transform;
-    }
-
-    @keyframes sway {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(0.45deg); }
-    }
-
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--accent);
-      pointer-events: none;
-      will-change: transform, opacity;
-    }
-
+    .hero { position: relative; z-index: 1; padding: 2.5rem 1.25rem 1.5rem; width: 100%; overflow: hidden; }
+    .hero-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 560px; }
+    .hero-eyebrow { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
+    .hero-title { font-size: clamp(2.1rem, 10vw, 3.6rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 0.85rem; }
+    .hero-line { display: block; overflow: hidden; }
+    .hero-word { display: inline-block; opacity: 0; transform: translate3d(0, 100%, 0); animation: word-in 0.85s var(--ease-out) forwards; animation-delay: var(--d, 0s); }
+    @keyframes word-in { to { opacity: 1; transform: translate3d(0, 0, 0); } }
+    .hero-subtitle { font-size: clamp(0.95rem, 4vw, 1.0625rem); color: var(--text-muted); max-width: 440px; line-height: 1.6; margin-bottom: 1.5rem; }
+    .hero-cta { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 320px; }
+    .hero-cta .btn { width: 100%; }
+    .hero-visual { width: 100%; display: flex; justify-content: center; margin-top: -20px; } /* мобилка: подняли на 20px */
+    .tree-stage { position: relative; width: 100%; display: flex; justify-content: center; padding-bottom: 0.5rem; will-change: transform; }
+    .tree-glow { position: absolute; top: 50%; left: 50%; width: min(100vw, 520px); height: min(100vw, 520px); transform: translate3d(-50%, -50%, 0); background: radial-gradient(circle, rgba(138, 230, 106, 0.22) 0%, rgba(138, 230, 106, 0.06) 38%, rgba(138, 230, 106, 0) 70%); pointer-events: none; animation: glow-pulse 6s ease-in-out infinite; will-change: transform, opacity; }
+    @keyframes glow-pulse { 0%, 100% { opacity: 0.75; transform: translate3d(-50%, -50%, 0) scale(1); } 50% { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1.07); } }
+    .fog { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(40px); opacity: 0.4; mix-blend-mode: screen; }
+    .fog-1 { width: 320px; height: 320px; top: 20%; left: 5%; background: radial-gradient(circle, rgba(138, 230, 106, 0.25) 0%, transparent 70%); animation: fog-drift-1 18s ease-in-out infinite alternate; }
+    .fog-2 { width: 260px; height: 260px; bottom: 15%; right: 5%; background: radial-gradient(circle, rgba(255, 217, 102, 0.1) 0%, transparent 70%); animation: fog-drift-2 22s ease-in-out infinite alternate; }
+    @keyframes fog-drift-1 { 0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.3; } 100% { transform: translate3d(40px, -30px, 0) scale(1.15); opacity: 0.5; } }
+    @keyframes fog-drift-2 { 0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.4; } 100% { transform: translate3d(-40px, 20px, 0) scale(1.2); opacity: 0.25; } }
+    .tree-frame { position: relative; width: min(82vw, 340px); z-index: 2; will-change: transform; transform: translate3d(0, 0, 0); }
+    .tree-svg { width: 100%; height: auto; filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5)); }
+    #canopy { transform-origin: 140px 250px; animation: sway 9s ease-in-out infinite; will-change: transform; }
+    @keyframes sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(0.45deg); } }
+    .particle { position: absolute; border-radius: 50%; background: var(--accent); pointer-events: none; will-change: transform, opacity; }
     .particle-1 { width: 5px; height: 5px; top: 22%; left: 16%; animation: float-1 9s ease-in-out infinite; opacity: 0.5; }
     .particle-2 { width: 3px; height: 3px; top: 58%; right: 14%; animation: float-2 12s ease-in-out infinite reverse; opacity: 0.35; }
     .particle-3 { width: 4px; height: 4px; bottom: 18%; left: 24%; animation: float-3 10s ease-in-out infinite 1s; opacity: 0.25; }
     .particle-4 { width: 3px; height: 3px; top: 40%; right: 20%; animation: float-1 14s ease-in-out infinite 2s; opacity: 0.3; }
+    @keyframes float-1 { 0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.3; } 50% { transform: translate3d(12px, -24px, 0); opacity: 0.6; } }
+    @keyframes float-2 { 0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; } 50% { transform: translate3d(-16px, -18px, 0); opacity: 0.5; } }
+    @keyframes float-3 { 0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; } 50% { transform: translate3d(8px, -30px, 0); opacity: 0.45; } }
 
-    @keyframes float-1 {
-      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.3; }
-      50% { transform: translate3d(12px, -24px, 0); opacity: 0.6; }
-    }
-    @keyframes float-2 {
-      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
-      50% { transform: translate3d(-16px, -18px, 0); opacity: 0.5; }
-    }
-    @keyframes float-3 {
-      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
-      50% { transform: translate3d(8px, -30px, 0); opacity: 0.45; }
-    }
-
-    /* ═══════════════════════════════════════
-       ТРИ ИНСТРУМЕНТА – новый премиальный дизайн
-       ═══════════════════════════════════════ */
-    .kits-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
+    /* Карточки – чистый дизайн, как просил */
+    .kits-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
     .kit-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
+      position: relative; display: flex; flex-direction: column;
       border-radius: var(--radius);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.01) 100%),
-        var(--surface);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: border-color 0.3s var(--ease-out),
-        transform 0.3s var(--ease-out),
-        box-shadow 0.3s var(--ease-out);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.01) 100%), var(--surface);
+      border: 1px solid var(--border); overflow: hidden;
+      transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
       contain: layout style paint;
     }
+    .kit-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(138, 230, 106, 0.12), transparent 45%); opacity: 0; transition: opacity 0.3s var(--ease-out); pointer-events: none; z-index: 1; }
+    .kit-card:hover::before { opacity: 1; }
+    .kit-card:hover { border-color: var(--border-strong); transform: translate3d(0, -3px, 0); box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8); }
 
-    .kit-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(
-        400px circle at var(--mx, 50%) var(--my, 50%),
-        rgba(138, 230, 106, 0.12),
-        transparent 45%
-      );
-      opacity: 0;
-      transition: opacity 0.3s var(--ease-out);
-      pointer-events: none;
-      z-index: 1;
-    }
+    .kit-icon { display: flex; align-items: center; justify-content: center; min-height: 140px; padding: 1.25rem; background: radial-gradient(ellipse at 50% 40%, rgba(138, 230, 106, 0.08) 0%, transparent 70%); border-bottom: 1px solid var(--border); }
+    .kit-icon svg { width: 100px; height: 100px; display: block; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4)); }
+    .kit-icon .widget-mock { width: 120px; height: 120px; padding: 12px; border-radius: 20px; background: linear-gradient(160deg, #1C1C1C 0%, #0D0D0D 100%); border: 1px solid rgba(255, 255, 255, 0.09); display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.04); }
+    .widget-mock-head { display: flex; align-items: center; justify-content: space-between; }
+    .widget-mock-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .widget-mock-flame { width: 14px; height: 14px; }
+    .widget-mock-num { font-size: 2rem; font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -0.04em; }
+    .widget-mock-foot { font-size: 0.6rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.03em; }
+    .kit-icon .diary-mock { width: 170px; padding: 14px 16px; border-radius: 16px; background: linear-gradient(160deg, #181818 0%, #0C0C0C 100%); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.04); }
+    .diary-mock-head { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .diary-mock-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px rgba(138, 230, 106, 0.4); }
+    .diary-mock-date { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; color: var(--text-muted); }
+    .diary-mock-line { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); margin-bottom: 6px; }
 
-    .kit-card:hover::before {
-      opacity: 1;
-    }
+    .kit-body { position: relative; z-index: 2; padding: 1.25rem 1.4rem 1.4rem; }
+    .kit-label { display: block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .kit-title { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 0.5rem; }
+    .kit-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
 
-    .kit-card:hover {
-      border-color: var(--border-strong);
-      transform: translate3d(0, -3px, 0);
-      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
-    }
+    .final-cta { position: relative; z-index: 1; padding: 4rem 1.25rem 4rem; text-align: center; background: radial-gradient(ellipse at 50% 60%, rgba(138, 230, 106, 0.08) 0%, transparent 65%); border-top: 1px solid var(--border); }
+    .final-inner { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .trust-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.02em; flex-wrap: wrap; }
+    .trust-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-dim); opacity: 0.6; }
+    .final-btn { margin-top: 0.5rem; min-width: 260px; }
+    .qr-block { display: none; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+    .qr-frame { width: 148px; height: 148px; padding: 8px; border-radius: 18px; background: #F2F2F2; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6); }
+    .qr-img { width: 100%; height: 100%; display: block; border-radius: 10px; }
+    .qr-label { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; justify-content: center; }
+    .qr-rustore { display: inline-flex; align-items: center; gap: 3px; color: var(--text); font-weight: 700; }
+    .qr-rustore-icon { width: 14px; height: 14px; }
 
-    /* Витрина с мокапом – главный визуальный якорь */
-    .kit-showcase {
-      position: relative;
-      aspect-ratio: 16 / 11;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(ellipse at 50% 30%, rgba(138, 230, 106, 0.1) 0%, transparent 65%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
+    .footer { position: relative; z-index: 1; padding: 2.5rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom)); border-top: 1px solid var(--border); background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.01) 100%); }
+    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; align-items: center; text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.35rem; align-items: center; }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; letter-spacing: -0.02em; color: var(--text); transition: color 0.2s var(--ease-out); }
+    .footer-logo:hover { color: var(--accent); }
+    .footer-tagline { font-size: 0.78rem; color: var(--text-dim); font-weight: 500; letter-spacing: 0.02em; }
+    .footer-nav { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+    .footer-nav a { font-size: 0.84rem; color: var(--text-muted); font-weight: 500; transition: color 0.2s var(--ease-out); position: relative; }
+    .footer-nav a::after { content: ""; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left center; transition: transform 0.3s var(--ease-out); opacity: 0.6; }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-nav a:hover::after { transform: scaleX(1); }
+    .footer-copy { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.03em; padding-top: 1rem; border-top: 1px solid var(--border); width: 100%; max-width: 320px; }
 
-    .kit-showcase::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 20%;
-      right: 20%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(138, 230, 106, 0.3), transparent);
-    }
-
-    .kit-showcase svg {
-      width: 90px;
-      height: 90px;
-      display: block;
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
-    }
-
-    /* Мокап виджета */
-    .widget-mock {
-      width: 118px;
-      height: 118px;
-      padding: 12px;
-      border-radius: 20px;
-      background: linear-gradient(160deg, #1C1C1C 0%, #0D0D0D 100%);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    }
-
-    .widget-mock-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .widget-mock-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .widget-mock-flame {
-      width: 14px;
-      height: 14px;
-    }
-
-    .widget-mock-num {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-
-    .widget-mock-foot {
-      font-size: 0.6rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      letter-spacing: 0.03em;
-    }
-
-    /* Мокап дневника */
-    .diary-mock {
-      width: 170px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: linear-gradient(160deg, #181818 0%, #0C0C0C 100%);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.8),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    }
-
-    .diary-mock-head {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .diary-mock-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 6px rgba(138, 230, 106, 0.4);
-    }
-
-    .diary-mock-date {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-    }
-
-    .diary-mock-line {
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(255, 255, 255, 0.1);
-      margin-bottom: 6px;
-    }
-
-    .kit-body {
-      position: relative;
-      z-index: 2;
-      padding: 1.25rem 1.4rem 1.4rem;
-    }
-
-    .kit-label {
-      display: block;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .kit-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.5rem;
-    }
-
-    .kit-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ═══════════════════════════════════════
-       ФИНАЛ
-       ═══════════════════════════════════════ */
-    .final-cta {
-      position: relative;
-      z-index: 1;
-      padding: 4rem 1.25rem 4rem;
-      text-align: center;
-      background: radial-gradient(
-        ellipse at 50% 60%,
-        rgba(138, 230, 106, 0.08) 0%,
-        transparent 65%
-      );
-      border-top: 1px solid var(--border);
-    }
-
-    .final-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .trust-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      letter-spacing: 0.02em;
-      flex-wrap: wrap;
-    }
-
-    .trust-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--text-dim);
-      opacity: 0.6;
-    }
-
-    .final-btn {
-      margin-top: 0.5rem;
-      min-width: 260px;
-    }
-
-    .qr-block {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-
-    .qr-frame {
-      width: 148px;
-      height: 148px;
-      padding: 8px;
-      border-radius: 18px;
-      background: #F2F2F2;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
-    }
-
-    .qr-img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .qr-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* ═══════════════════════════════════════
-       FOOTER – премиальный
-       ═══════════════════════════════════════ */
-    .footer {
-      position: relative;
-      z-index: 1;
-      padding: 2.5rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));
-      border-top: 1px solid var(--border);
-      background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.01) 100%);
-    }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      align-items: center;
-    }
-
-    .footer-logo {
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      transition: color 0.2s var(--ease-out);
-    }
-
-    .footer-logo:hover {
-      color: var(--accent);
-    }
-
-    .footer-tagline {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .footer-nav a {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      transition: color 0.2s var(--ease-out);
-      position: relative;
-    }
-
-    .footer-nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.3s var(--ease-out);
-      opacity: 0.6;
-    }
-
-    .footer-nav a:hover {
-      color: var(--text);
-    }
-
-    .footer-nav a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .footer-copy {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      letter-spacing: 0.03em;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      width: 100%;
-      max-width: 320px;
-    }
-
-    /* ═══════════════════════════════════════
-       ПЛАНШЕТ
-       ═══════════════════════════════════════ */
     @media (min-width: 640px) {
-      .kits-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-      }
-      .hero-cta {
-        flex-direction: row;
-        max-width: none;
-        width: auto;
-      }
-      .hero-cta .btn {
-        width: auto;
-        padding: 0 2rem;
-      }
-      .tree-frame {
-        width: min(60vw, 380px);
-      }
-      .hero-visual {
-        margin-top: -20px;
-      }
-      .footer-nav {
-        flex-direction: row;
-        gap: 1.5rem;
-      }
+      .kits-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .hero-cta { flex-direction: row; max-width: none; width: auto; }
+      .hero-cta .btn { width: auto; padding: 0 2rem; }
+      .tree-frame { width: min(60vw, 380px); }
+      .hero-visual { margin-top: -15px; }
+      .footer-nav { flex-direction: row; gap: 1.5rem; }
     }
 
-    /* ═══════════════════════════════════════
-       ДЕСКТОП
-       ═══════════════════════════════════════ */
     @media (min-width: 900px) {
-      .hero {
-        padding: 4rem 2rem 3rem;
-      }
-
-      .hero-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 4rem;
-        min-height: 78vh;
-      }
-
-      .hero-content {
-        align-items: flex-start;
-        text-align: left;
-        max-width: 520px;
-        flex: 1;
-      }
-
-      .hero-title {
-        font-size: 4rem;
-      }
-
-      .hero-subtitle {
-        max-width: 480px;
-      }
-
-      .hero-cta {
-        justify-content: flex-start;
-      }
-
-      /* Симметрия дерева относительно текста */
-      .hero-visual {
-        flex: 1;
-        justify-content: flex-end;
-        margin-top: -30px;
-      }
-
-      .tree-frame {
-        width: 420px;
-      }
-
-      .tree-glow {
-        width: 600px;
-        height: 600px;
-      }
-
-      .fog-1 {
-        width: 460px;
-        height: 460px;
-      }
-
-      .fog-2 {
-        width: 360px;
-        height: 360px;
-      }
-
-      .qr-block {
-        display: flex;
-      }
-
-      .kits-grid {
-        gap: 1.25rem;
-      }
-
-      .kit-showcase {
-        aspect-ratio: 16 / 10;
-      }
-
-      .kit-showcase svg {
-        width: 110px;
-        height: 110px;
-      }
-
-      .widget-mock {
-        width: 128px;
-        height: 128px;
-      }
-
-      .widget-mock-num {
-        font-size: 2.25rem;
-      }
-
-      .diary-mock {
-        width: 185px;
-      }
-
-      .section {
-        padding: 5rem 2rem;
-      }
-
-      .final-cta {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-      }
-
-      .footer {
-        padding: 3rem 2rem;
-      }
-
-      .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .footer-brand {
-        align-items: flex-start;
-      }
-
-      .footer-copy {
-        padding-top: 0;
-        border-top: none;
-        max-width: none;
-        width: auto;
-      }
+      .hero { padding: 4rem 2rem 3rem; }
+      .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 4rem; min-height: 78vh; }
+      .hero-content { align-items: flex-start; text-align: left; max-width: 520px; flex: 1; }
+      .hero-title { font-size: 4rem; }
+      .hero-subtitle { max-width: 480px; }
+      .hero-cta { justify-content: flex-start; }
+      .hero-visual { flex: 1; justify-content: flex-end; margin-top: -53px; } /* десктоп: подняли на 33px + базовые -20px = -53px */
+      .tree-frame { width: 420px; }
+      .tree-glow { width: 600px; height: 600px; }
+      .fog-1 { width: 460px; height: 460px; }
+      .fog-2 { width: 360px; height: 360px; }
+      .qr-block { display: flex; }
+      .kits-grid { gap: 1.25rem; }
+      .kit-icon svg { width: 110px; height: 110px; }
+      .kit-icon .widget-mock { width: 128px; height: 128px; }
+      .kit-icon .widget-mock-num { font-size: 2.25rem; }
+      .kit-icon .diary-mock { width: 185px; }
+      .section { padding: 5rem 2rem; }
+      .final-cta { padding-top: 5rem; padding-bottom: 5rem; }
+      .footer { padding: 3rem 2rem; }
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; gap: 2rem; flex-wrap: wrap; }
+      .footer-brand { align-items: flex-start; }
+      .footer-copy { padding-top: 0; border-top: none; max-width: none; width: auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-word {
-        opacity: 1;
-        transform: none;
-        animation: none;
-      }
-      .fog,
-      .particle {
-        animation: none;
-        opacity: 0.2;
-      }
+      .hero-word { opacity: 1; transform: none; animation: none; }
+      .fog, .particle { animation: none; opacity: 0.2; }
     }
   </style>
 </Layout>
