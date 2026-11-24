@@ -1,0 +1,101 @@
+---
+// src/pages/articles/index.astro
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+const sortedArticles = allArticles.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Статьи о привычках – Дерево привычек">
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="articles-page">
+    <header class="articles-header">
+      <span class="hero-eyebrow">Блог</span>
+      <h1 class="hero-title">Статьи о <span class="accent">привычках</span></h1>
+      <p class="hero-subtitle">
+        Разбираемся, как работают привычки, почему мы бросаем на второй день и как это исправить.
+      </p>
+    </header>
+
+    <div class="articles-grid">
+      {sortedArticles.map((article) => (
+        <a href={`/articles/${article.id}`} class="article-card">
+          <h2 class="article-title">{article.data.title}</h2>
+          <p class="article-description">{article.data.description}</p>
+          <time datetime={article.data.pubDate.toISOString()} class="article-date">
+            {article.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </time>
+        </a>
+      ))}
+    </div>
+
+    {sortedArticles.length === 0 && (
+      <p class="empty-state">Статьи скоро появятся. Следите за обновлениями!</p>
+    )}
+  </main>
+</Layout>
+
+<style is:global>
+  .articles-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+  }
+
+  .articles-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .articles-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .article-card {
+    display: block;
+    padding: 1.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+
+  .article-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+  }
+
+  .article-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .article-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .article-date {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 3rem 0;
+  }
+</style>

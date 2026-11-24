@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://owevyat.github.io/habitwood-landing/sitemap-index.xml
